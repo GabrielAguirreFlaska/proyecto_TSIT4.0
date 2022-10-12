@@ -96,3 +96,6 @@ insert into tema values (null,'Lêttre à ma Mère','00:40:00:00','Paul De Senne
 insert into tema values (null,"Mariage D'Amour",'00:03:00:00','Paul De Senneville','Paul De Senneville',1,3);
 insert into tema values (null,"Souvenirs D'Enfance",'00:03:00:00','Paul De Senneville','Paul De Senneville',1,3);
 insert into tema values (null,"Nostalgie",'00:03:00:00','Paul De Senneville','Paul De Senneville',1,3);
+
+use disqueria;
+SELECT * FROM interprete;
