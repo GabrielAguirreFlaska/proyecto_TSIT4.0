@@ -1,11 +1,17 @@
 import control as con
+from rich import print
+from rich.console import Console
 
+
+
+
+console= Console()
 while True:
-    print("\n+-------------------------------------------+")
-    print("|         DISQUERÍA FORMOSA MUSICAL         |")
-    print("+-------------------------------------------+\n")
+    console.print("\n+-------------------------------------------+", style="bold blue on white")
+    console.print("|         DISQUERÍA FORMOSA MUSICAL         |", style="bold blue on white")
+    console.print("+-------------------------------------------+\n", style="bold blue on white")
     print("")
-    print("MENÚ PRINCIPAL\n")
+    console.print("MENÚ PRINCIPAL\n", style=("bold underline green"))
     print("1 - DAR DE ALTA UN ÁLBUM")
     print("2 - DAR DE BAJA UN ALBUM")
     print("3 - MODIFICAR EL NOMBRE DE UN ALBUM")
@@ -17,7 +23,8 @@ while True:
     print("9 - BUSQUEDA POR NOMBRE DE ALBUM")
     print("10 - SALIR")
     print("\n")
-    opcion = int(input("Ingrese su opción: "))
+    console.print("Ingrese su opcion", style="bold blue")
+    opcion = int(console.input("->"))
 
     if opcion == 1:
         con.agregar_album()
