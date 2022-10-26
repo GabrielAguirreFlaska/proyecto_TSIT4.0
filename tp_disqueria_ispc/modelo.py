@@ -1,5 +1,6 @@
 from unittest.util import _count_diff_all_purpose
 import mysql.connector
+from rich import print
 
 class Conectar():
 
@@ -104,7 +105,7 @@ class Conectar():
         n = cur.rowcount
         self.conexion.commit()
         cur.close()
-        return n, print("Stock del album modificado correctamente"), print(f"Nuevo precio: {cantidad}")
+        return n, print("Stock del album modificado correctamente"), print(f"Nuevo stock: {cantidad}")
 
     def insertar_interprete(self,interprete):
         if self.conexion.is_connected():
