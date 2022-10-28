@@ -1,4 +1,4 @@
-create database disqueria;
+create database disqueria1;
 
 use disqueria;
 
