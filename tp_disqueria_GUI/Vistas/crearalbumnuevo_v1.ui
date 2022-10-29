@@ -25,7 +25,7 @@
    <layout class="QVBoxLayout" name="verticalLayout">
     <item>
      <layout class="QGridLayout" name="gridLayout">
-      <item row="11" column="0">
+      <item row="13" column="0">
        <widget class="QLabel" name="label_8">
         <property name="font">
          <font>
@@ -38,7 +38,7 @@
         </property>
        </widget>
       </item>
-      <item row="8" column="0" colspan="2">
+      <item row="10" column="0" colspan="2">
        <widget class="QLabel" name="label_9">
         <property name="font">
          <font>
@@ -51,7 +51,7 @@
         </property>
        </widget>
       </item>
-      <item row="15" column="2">
+      <item row="18" column="2">
        <widget class="QLineEdit" name="input_caratula">
         <property name="font">
          <font>
@@ -82,7 +82,7 @@
         </property>
        </widget>
       </item>
-      <item row="14" column="2">
+      <item row="16" column="2">
        <widget class="QLineEdit" name="input_precio">
         <property name="font">
          <font>
@@ -95,173 +95,7 @@
         </property>
        </widget>
       </item>
-      <item row="7" column="2">
-       <widget class="QComboBox" name="comboBox_genero"/>
-      </item>
-      <item row="7" column="0">
-       <widget class="QLabel" name="label_5">
-        <property name="font">
-         <font>
-          <family>Bell MT</family>
-          <pointsize>10</pointsize>
-         </font>
-        </property>
-        <property name="text">
-         <string>ID género:</string>
-        </property>
-       </widget>
-      </item>
-      <item row="11" column="2">
-       <widget class="QComboBox" name="comboBox_dicografica">
-        <property name="mouseTracking">
-         <bool>false</bool>
-        </property>
-       </widget>
-      </item>
-      <item row="12" column="0">
-       <widget class="QLabel" name="label_11">
-        <property name="font">
-         <font>
-          <family>Bell MT</family>
-          <pointsize>10</pointsize>
-         </font>
-        </property>
-        <property name="text">
-         <string>Formato</string>
-        </property>
-       </widget>
-      </item>
-      <item row="2" column="0">
-       <widget class="QLabel" name="label_2">
-        <property name="font">
-         <font>
-          <family>Bell MT</family>
-          <pointsize>10</pointsize>
-         </font>
-        </property>
-        <property name="text">
-         <string>Nombre:</string>
-        </property>
-       </widget>
-      </item>
-      <item row="6" column="0">
-       <widget class="QLabel" name="label_4">
-        <property name="font">
-         <font>
-          <family>Bell MT</family>
-          <pointsize>10</pointsize>
-         </font>
-        </property>
-        <property name="text">
-         <string>ID intérprete:</string>
-        </property>
-       </widget>
-      </item>
-      <item row="13" column="2">
-       <widget class="QLineEdit" name="input_fechadelanzamiento">
-        <property name="font">
-         <font>
-          <family>Bell MT</family>
-          <pointsize>10</pointsize>
-         </font>
-        </property>
-        <property name="placeholderText">
-         <string>Fecha de lanzamiento</string>
-        </property>
-       </widget>
-      </item>
-      <item row="13" column="0" colspan="2">
-       <widget class="QLabel" name="label_7">
-        <property name="font">
-         <font>
-          <family>Bell MT</family>
-          <pointsize>10</pointsize>
-         </font>
-        </property>
-        <property name="text">
-         <string>Fecha de lanzamiento:</string>
-        </property>
-       </widget>
-      </item>
-      <item row="6" column="2">
-       <widget class="QComboBox" name="comboBox_interprete"/>
-      </item>
-      <item row="12" column="2">
-       <widget class="QComboBox" name="comboBox_formato">
-        <property name="mouseTracking">
-         <bool>false</bool>
-        </property>
-       </widget>
-      </item>
-      <item row="8" column="2">
-       <widget class="QLineEdit" name="input_cantidaddetemas">
-        <property name="font">
-         <font>
-          <family>Bell MT</family>
-          <pointsize>10</pointsize>
-         </font>
-        </property>
-        <property name="placeholderText">
-         <string>Cantidad de temas</string>
-        </property>
-       </widget>
-      </item>
-      <item row="15" column="0">
-       <widget class="QLabel" name="label_6">
-        <property name="font">
-         <font>
-          <family>Bell MT</family>
-          <pointsize>10</pointsize>
-         </font>
-        </property>
-        <property name="text">
-         <string>Carátula:</string>
-        </property>
-       </widget>
-      </item>
-      <item row="14" column="0">
-       <widget class="QLabel" name="label_10">
-        <property name="font">
-         <font>
-          <family>Bell MT</family>
-          <pointsize>10</pointsize>
-         </font>
-        </property>
-        <property name="text">
-         <string>Precio:</string>
-        </property>
-       </widget>
-      </item>
-      <item row="1" column="0">
-       <widget class="QLabel" name="label_3">
-        <property name="font">
-         <font>
-          <family>Bell MT</family>
-          <pointsize>10</pointsize>
-         </font>
-        </property>
-        <property name="text">
-         <string>Código:</string>
-        </property>
-       </widget>
-      </item>
-      <item row="1" column="2">
-       <widget class="QLineEdit" name="input_codigo">
-        <property name="font">
-         <font>
-          <family>Bell MT</family>
-          <pointsize>10</pointsize>
-         </font>
-        </property>
-        <property name="text">
-         <string/>
-        </property>
-        <property name="placeholderText">
-         <string>Código</string>
-        </property>
-       </widget>
-      </item>
-      <item row="2" column="2">
+      <item row="4" column="2">
        <widget class="QLineEdit" name="input_nombre">
         <property name="font">
          <font>
@@ -274,6 +108,201 @@
         </property>
         <property name="placeholderText">
          <string>Nombre</string>
+        </property>
+       </widget>
+      </item>
+      <item row="17" column="0">
+       <widget class="QLabel" name="label_12">
+        <property name="font">
+         <font>
+          <family>Bell MT</family>
+          <pointsize>10</pointsize>
+         </font>
+        </property>
+        <property name="text">
+         <string>Cantidad</string>
+        </property>
+       </widget>
+      </item>
+      <item row="17" column="2">
+       <widget class="QLineEdit" name="input_stock">
+        <property name="font">
+         <font>
+          <family>Bell MT</family>
+          <pointsize>10</pointsize>
+         </font>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+        <property name="placeholderText">
+         <string>Stock</string>
+        </property>
+       </widget>
+      </item>
+      <item row="9" column="2">
+       <widget class="QComboBox" name="comboBox_genero"/>
+      </item>
+      <item row="3" column="0">
+       <widget class="QLabel" name="label_3">
+        <property name="font">
+         <font>
+          <family>Bell MT</family>
+          <pointsize>10</pointsize>
+         </font>
+        </property>
+        <property name="text">
+         <string>Código:</string>
+        </property>
+       </widget>
+      </item>
+      <item row="9" column="0">
+       <widget class="QLabel" name="label_5">
+        <property name="font">
+         <font>
+          <family>Bell MT</family>
+          <pointsize>10</pointsize>
+         </font>
+        </property>
+        <property name="text">
+         <string>ID género:</string>
+        </property>
+       </widget>
+      </item>
+      <item row="13" column="2">
+       <widget class="QComboBox" name="comboBox_dicografica">
+        <property name="mouseTracking">
+         <bool>false</bool>
+        </property>
+       </widget>
+      </item>
+      <item row="14" column="0">
+       <widget class="QLabel" name="label_11">
+        <property name="font">
+         <font>
+          <family>Bell MT</family>
+          <pointsize>10</pointsize>
+         </font>
+        </property>
+        <property name="text">
+         <string>Formato</string>
+        </property>
+       </widget>
+      </item>
+      <item row="4" column="0">
+       <widget class="QLabel" name="label_2">
+        <property name="font">
+         <font>
+          <family>Bell MT</family>
+          <pointsize>10</pointsize>
+         </font>
+        </property>
+        <property name="text">
+         <string>Nombre:</string>
+        </property>
+       </widget>
+      </item>
+      <item row="8" column="0">
+       <widget class="QLabel" name="label_4">
+        <property name="font">
+         <font>
+          <family>Bell MT</family>
+          <pointsize>10</pointsize>
+         </font>
+        </property>
+        <property name="text">
+         <string>ID intérprete:</string>
+        </property>
+       </widget>
+      </item>
+      <item row="15" column="2">
+       <widget class="QLineEdit" name="input_fechadelanzamiento">
+        <property name="font">
+         <font>
+          <family>Bell MT</family>
+          <pointsize>10</pointsize>
+         </font>
+        </property>
+        <property name="placeholderText">
+         <string>Fecha de lanzamiento</string>
+        </property>
+       </widget>
+      </item>
+      <item row="15" column="0" colspan="2">
+       <widget class="QLabel" name="label_7">
+        <property name="font">
+         <font>
+          <family>Bell MT</family>
+          <pointsize>10</pointsize>
+         </font>
+        </property>
+        <property name="text">
+         <string>Fecha de lanzamiento:</string>
+        </property>
+       </widget>
+      </item>
+      <item row="8" column="2">
+       <widget class="QComboBox" name="comboBox_interprete"/>
+      </item>
+      <item row="14" column="2">
+       <widget class="QComboBox" name="comboBox_formato">
+        <property name="mouseTracking">
+         <bool>false</bool>
+        </property>
+       </widget>
+      </item>
+      <item row="10" column="2">
+       <widget class="QLineEdit" name="input_cantidaddetemas">
+        <property name="font">
+         <font>
+          <family>Bell MT</family>
+          <pointsize>10</pointsize>
+         </font>
+        </property>
+        <property name="placeholderText">
+         <string>Cantidad de temas</string>
+        </property>
+       </widget>
+      </item>
+      <item row="18" column="0">
+       <widget class="QLabel" name="label_6">
+        <property name="font">
+         <font>
+          <family>Bell MT</family>
+          <pointsize>10</pointsize>
+         </font>
+        </property>
+        <property name="text">
+         <string>Carátula:</string>
+        </property>
+       </widget>
+      </item>
+      <item row="16" column="0">
+       <widget class="QLabel" name="label_10">
+        <property name="font">
+         <font>
+          <family>Bell MT</family>
+          <pointsize>10</pointsize>
+         </font>
+        </property>
+        <property name="text">
+         <string>Precio:</string>
+        </property>
+       </widget>
+      </item>
+      <item row="3" column="2">
+       <widget class="QLineEdit" name="input_codigo">
+        <property name="font">
+         <font>
+          <family>Bell MT</family>
+          <pointsize>10</pointsize>
+         </font>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+        <property name="placeholderText">
+         <string>Código</string>
         </property>
        </widget>
       </item>

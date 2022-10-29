@@ -1,4 +1,6 @@
+from os import curdir
 from unittest.util import _count_diff_all_purpose
+from colorama import Cursor
 import mysql.connector
 from rich import print
 
@@ -30,6 +32,13 @@ class Conectar():
         for row in datos:
             aux = aux + str(row) + "\n"
         return aux
+
+    def consulta_albumes(self):
+        cur = self.conexion.cursor()
+        cur.execute ("SELECT * FROM album, interprete WHERE album.id_interprete = interprete.id_interprete ORDER BY interprete.apellido desc")
+        datos = cur.fetchall()
+        cur.close()
+        return datos
 
     def consulta_albumes_por_artista (self):
         cur = self.conexion.cursor()
@@ -161,11 +170,66 @@ class Conectar():
         return resultados
 
     def listar_album(self):
-        cur = self.conexion.cursor()
+        cursor = self.conexion.cursor()
         sentenciaSql = "SELECT id_album, cod_album, nombre, precio, cantidad FROM album"
-        cur.execute(sentenciaSql)
-        resultados = cur.fetchall()
+        cursor.execute(sentenciaSql)
+        resultados = cursor.fetchall()
         return resultados
+
+    def id_interprete_por_nombre(self, nombre, apellido):
+        cursor = self.conexion.cursor()
+        sentenciaSql = "SELECT id_interprete FROM interprete WHERE nombre LIKE %s AND apellido LIKE %s"
+        data = (nombre, apellido)
+        cursor.execute(sentenciaSql, data)
+        resultados = cursor.fetchall()
+        return resultados
+
+    def id_genero_por_nombre(self, genero):
+        cursor = self.conexion.cursor()
+        sentenciaSql = "SELECT id_genero FROM genero WHERE nombre like %s"
+        data = (genero,)
+        cursor.execute(sentenciaSql, data)
+        res = cursor.fetchall()
+        return res
+
+    def id_discografica_por_nombre(self, discografica):
+        cursor = self.conexion.cursor()
+        sentenciaSql = "SELECT id_discografica FROM discografica WHERE nombre like %s"
+        data = (discografica,)
+        cursor.execute(sentenciaSql, data)
+        res = cursor.fetchall()
+        return res
+
+    def id_formato_por_nombre(self, formato):
+        cursor = self.conexion.cursor()
+        sentenciaSql = "SELECT id_formato FROM formato WHERE tipo like %s"
+        data = (formato,)
+        cursor.execute(sentenciaSql, data)
+        res = cursor.fetchall()
+        return res
+
+
+
+    #########################################################################
+    # def listar_interpretes_gui(self):
+    #     salida = []
+    #     cursor = self.conexion.cursor()
+    #     sentenciaSQL = "SELECT nombre, apellido FROM interprete"
+    #     cursor.execute(sentenciaSQL)
+    #     resultados = cursor.fetchall()
+    #     for res in resultados:
+    #         texto = res[0] + ' ' + res[1]
+    #         salida.append(texto)
+        
+    #     return salida
+#########################################################################
+    # def getProduct(self, cod):
+    #     with self.conn.cursor() as cursor:
+    #         sql = """SELECT * FROM album WHERE cod = %s"""
+    #         cursor.execute(sql,cod)
+    #         result = cursor.fetchone()
+    #         if result:
+    #             return result
 
 # con = Conectar()
 # con.listar_formato()

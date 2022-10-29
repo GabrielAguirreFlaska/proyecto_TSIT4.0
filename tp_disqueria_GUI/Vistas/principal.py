@@ -18,7 +18,7 @@ print('###########################')
 
 
 from tp_disqueria_GUI.ControladoresGUI.PrincipalController import PrincipalController
-from tp_disqueria_GUI.Vistas.crearalbumnuevo_v1 import Ui_CrearProducto
+from tp_disqueria_GUI.Vistas.crearalbumnuevo_v2 import Ui_CrearProducto
 from PyQt5 import QtCore, QtGui, QtWidgets
 
 
@@ -122,11 +122,11 @@ class Ui_Principal(object):
 
 
         #--------------------Events--------------------------------------
-        # self.l = self.btn_list.clicked.connect(lambda:self.principal_controller.listProducts())
+        self.l = self.boton_listar.clicked.connect(lambda:self.principal_controller.listProducts())   #ok
         self.c = self.boton_crear.clicked.connect(lambda:self.principal_controller.abrir_crear_album(Ui_CrearProducto))
         # self.r = self.btn_read.clicked.connect(lambda:self.principal_controller.showProduct())
-        # self.u = self.btn_update.clicked.connect(lambda:self.principal_controller.updateProducs())
-        # self.d = self.btn_delete.clicked.connect(lambda:self.principal_controller.deleteProduct())
+        # self.u = self.boton_actualizar.clicked.connect(lambda:self.principal_controller.updateProduct())
+        self.d = self.boton_eliminar.clicked.connect(lambda:self.principal_controller.deleteProduct())  #ok
         #--------------------End Events---------------------------------
 
 

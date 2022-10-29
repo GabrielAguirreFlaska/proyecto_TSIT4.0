@@ -1,4 +1,4 @@
-#import tp_disqueria_GUI.modelo as mo
+from tp_disqueria_GUI import modelo as mo
 from rich import print
 from rich.console import Console
 
@@ -78,61 +78,69 @@ def buscar_por_album():
 
 #buscar_por_album()
 
-def agregar_album():
-    con = mo.Conectar()
-    console.print("Ingrese el codigo del nuevo album:",style=("bold blue"))
-    cod_album = int(input("->"))
-    console.print("Ingrese el nombre del album:", style=("bold blue"))
-    nombre = input("->")
-    console.print("\nIntérpretes Disponibles:",style=("bold red"))
-    print("\n")
-    listado_de_interpretes = con.listar_interpretes()
-    for listado in listado_de_interpretes:
-        print(listado)
-    console.print("Ingrese el ID del interprete:", style=("bold blue"))
-    id_interprete = int(input("->"))
+# def agregar_album():
+#     con = mo.Conectar()
+#     console.print("Ingrese el codigo del nuevo album:",style=("bold blue"))
+#     cod_album = int(input("->"))
+#     console.print("Ingrese el nombre del album:", style=("bold blue"))
+#     nombre = input("->")
+#     console.print("\nIntérpretes Disponibles:",style=("bold red"))
+#     print("\n")
+#     listado_de_interpretes = con.listar_interpretes()
+#     for listado in listado_de_interpretes:
+#         print(listado)
+#     console.print("Ingrese el ID del interprete:", style=("bold blue"))
+#     id_interprete = int(input("->"))
     
-    console.print("\nGéneros disponibles:",style=("bold red"))
-    print("\n")
-    listado_de_generos = con.listar_genero()
-    for g in listado_de_generos:
-        print(g)
-    console.print("Ingrese el ID del Genero:", style=("bold blue"))
-    id_genero = int(input("->"))
-    console.print("Ingrese la cantidad de temas que contiene el album:", style=("bold blue"))
-    cant_temas = int(input("->"))
-    print("\n")
-    console.print("\nDiscográficas disponibles:",style=("bold red"))
-    print("\n")
-    listado_de_discograficas = con.listar_discografica()
-    for d in listado_de_discograficas:
-        print(d)
-    console.print("Ingrese el ID de la discografica:", style=("bold blue"))
-    id_discografica = int(input("->"))
-    print("\n")
-    console.print("\nFormatos disponibles:",style=("bold red"))
-    print("\n")
-    listado_de_formatos = con.listar_formato()
-    for f in listado_de_formatos:
-        print(f)
-    console.print("Ingrese el ID del formato:", style=("bold blue"))
-    id_formato = int(input("->"))
-    print("\n")
-    console.print("Ingrese la fecha de lanzamiento del album (aaaa-mm-dd)",style=("bold blue"))
-    fec_lanzamiento = input("->")
-    print("\n")
-    console.print("Ingrese el precio del nuevo album:",style=("bold blue"))
-    precio = float(input("->"))
-    print("\n")
-    console.print("Ingrese el stock disponible para este album:", style=("bold blue"))
-    cantidad = float(input("->"))
-    print("\n")
-    console.print("Ingrese la direccion web de la caratula: ", style=("bold blue"))
-    caratula = input("->")
-    print("\n")
+#     console.print("\nGéneros disponibles:",style=("bold red"))
+#     print("\n")
+#     listado_de_generos = con.listar_genero()
+#     for g in listado_de_generos:
+#         print(g)
+#     console.print("Ingrese el ID del Genero:", style=("bold blue"))
+#     id_genero = int(input("->"))
+#     console.print("Ingrese la cantidad de temas que contiene el album:", style=("bold blue"))
+#     cant_temas = int(input("->"))
+#     print("\n")
+#     console.print("\nDiscográficas disponibles:",style=("bold red"))
+#     print("\n")
+#     listado_de_discograficas = con.listar_discografica()
+#     for d in listado_de_discograficas:
+#         print(d)
+#     console.print("Ingrese el ID de la discografica:", style=("bold blue"))
+#     id_discografica = int(input("->"))
+#     print("\n")
+#     console.print("\nFormatos disponibles:",style=("bold red"))
+#     print("\n")
+#     listado_de_formatos = con.listar_formato()
+#     for f in listado_de_formatos:
+#         print(f)
+#     console.print("Ingrese el ID del formato:", style=("bold blue"))
+#     id_formato = int(input("->"))
+#     print("\n")
+#     console.print("Ingrese la fecha de lanzamiento del album (aaaa-mm-dd)",style=("bold blue"))
+#     fec_lanzamiento = input("->")
+#     print("\n")
+#     console.print("Ingrese el precio del nuevo album:",style=("bold blue"))
+#     precio = float(input("->"))
+#     print("\n")
+#     console.print("Ingrese el stock disponible para este album:", style=("bold blue"))
+#     cantidad = float(input("->"))
+#     print("\n")
+#     console.print("Ingrese la direccion web de la caratula: ", style=("bold blue"))
+#     caratula = input("->")
+#     print("\n")
+#     nuevoAlbum = mo.Album(0,cod_album,nombre,id_interprete,id_genero,cant_temas,id_discografica,id_formato,fec_lanzamiento,precio,cantidad,caratula)
+#     con.insertar_album(nuevoAlbum)
+#     input("Presione ENTER para continuar")
+
+def agregar_album_gui():
+    con = mo.Conectar()
+    #obtener los campos del form
+
     nuevoAlbum = mo.Album(0,cod_album,nombre,id_interprete,id_genero,cant_temas,id_discografica,id_formato,fec_lanzamiento,precio,cantidad,caratula)
     con.insertar_album(nuevoAlbum)
-    input("Presione ENTER para continuar")
+
 
 #agregar_album()
 
