@@ -9,6 +9,7 @@
 
 import sys
 import os
+
 myDir = os.getcwd()
 sys.path.append(myDir)
 print('###########################')
@@ -16,11 +17,17 @@ print(myDir)
 print('###########################')
 
 
-from tp_disqueria_ispc import principal_controller
+from tp_disqueria_GUI.ControladoresGUI.PrincipalController import PrincipalController
+from tp_disqueria_GUI.Vistas.crearalbumnuevo_v1 import Ui_CrearProducto
 from PyQt5 import QtCore, QtGui, QtWidgets
 
 
 class Ui_Principal(object):
+
+    def __init__(self):
+        self.principal_controller = PrincipalController(self)
+
+
     def setupUi(self, Principal):
         Principal.setObjectName("Principal")
         Principal.resize(1431, 711)
@@ -112,6 +119,16 @@ class Ui_Principal(object):
 
         self.retranslateUi(Principal)
         QtCore.QMetaObject.connectSlotsByName(Principal)
+
+
+        #--------------------Events--------------------------------------
+        # self.l = self.btn_list.clicked.connect(lambda:self.principal_controller.listProducts())
+        self.c = self.boton_crear.clicked.connect(lambda:self.principal_controller.abrir_crear_album(Ui_CrearProducto))
+        # self.r = self.btn_read.clicked.connect(lambda:self.principal_controller.showProduct())
+        # self.u = self.btn_update.clicked.connect(lambda:self.principal_controller.updateProducs())
+        # self.d = self.btn_delete.clicked.connect(lambda:self.principal_controller.deleteProduct())
+        #--------------------End Events---------------------------------
+
 
     def retranslateUi(self, Principal):
         _translate = QtCore.QCoreApplication.translate
