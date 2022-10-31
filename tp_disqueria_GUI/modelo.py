@@ -161,9 +161,10 @@ class Conectar():
 
     def busqueda_por_titulo_tema(self, nombre):
         cur = self.conexion.cursor()
+        nom = '%'+nombre+'%'
         sentenciaSQL = "SELECT * FROM tema WHERE UPPER(titulo) like UPPER(%s)"
         data = (
-            nombre,
+            nom,
         )
         cur.execute(sentenciaSQL, data)
         datos = cur.fetchall()
