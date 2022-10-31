@@ -130,6 +130,24 @@ class Conectar():
             self.conexion.commit()
             self.conexion.close()
 
+    def insertar_tema(self, tema):
+        if self.conexion.is_connected():
+            cur = self.conexion.cursor()
+            sentenciaSQL = "INSERT into tema values(null,%s,%s,%s,%s,%s,%s)"
+            data = (
+            tema.getTitulo(),
+            tema.getDuracion(),
+            tema.getAutor(),
+            tema.getCompositor(),
+            tema.getCod_album(),
+            tema.getId_interprete()
+            )
+            cur.execute(sentenciaSQL,data)
+            self.conexion.commit()
+            self.conexion.close()
+
+
+
     def busqueda_por_nombre_album(self, album):
         cur = self.conexion.cursor()
         sentenciaSql = "SELECT cod_album, nombre, precio, cantidad FROM album WHERE nombre like %s"
@@ -141,12 +159,31 @@ class Conectar():
         self.conexion.close()
         return datos, print(datos)
 
+    def busqueda_por_titulo_tema(self, nombre):
+        cur = self.conexion.cursor()
+        sentenciaSQL = "SELECT * FROM tema WHERE UPPER(titulo) like UPPER(%s)"
+        data = (
+            nombre,
+        )
+        cur.execute(sentenciaSQL, data)
+        datos = cur.fetchall()
+        self.conexion.close()
+        return datos
+
+
     def listar_interpretes(self):
         cursor = self.conexion.cursor()
         sentenciaSQL = "SELECT * FROM interprete"
         cursor.execute(sentenciaSQL)
         resultados = cursor.fetchall()
         return resultados
+
+    def listar_tema(self):
+        cursor = self.conexion.cursor()
+        sentenciaSQL = "SELECT * FROM tema"
+        cursor.execute(sentenciaSQL)
+        res = cursor.fetchall()
+        return res
 
     def listar_genero(self):
         cursor = self.conexion.cursor()
@@ -175,11 +212,30 @@ class Conectar():
         cursor.execute(sentenciaSql)
         resultados = cursor.fetchall()
         return resultados
+    
+    #####################################################
+
+    def listar_album_cB(self):
+        cursor = self.conexion.cursor()
+        sentenciaSql = "SELECT cod_album, nombre FROM album"
+        cursor.execute(sentenciaSql)
+        resultados = cursor.fetchall()
+        return resultados
+
+    ######################################################
 
     def id_interprete_por_nombre(self, nombre, apellido):
         cursor = self.conexion.cursor()
         sentenciaSql = "SELECT id_interprete FROM interprete WHERE nombre LIKE %s AND apellido LIKE %s"
         data = (nombre, apellido)
+        cursor.execute(sentenciaSql, data)
+        resultados = cursor.fetchall()
+        return resultados
+
+    def id_album_por_nombre(self, nombre):
+        cursor = self.conexion.cursor()
+        sentenciaSql = "SELECT id_album FROM album WHERE nombre LIKE %s"
+        data = (nombre,)
         cursor.execute(sentenciaSql, data)
         resultados = cursor.fetchall()
         return resultados
@@ -348,7 +404,7 @@ class Tema():
 
     def getId_tema(self):
         return self.id_tema
-    def getTiulo(self):
+    def getTitulo(self):        ######correccion de escritura
         return self.titulo
     def getDuracion(self):
         return self.duracion
