@@ -33,7 +33,6 @@ class Ui_Form(object):
         self.principal_controller = PrincipalController(self)
 
 
-
     def setupUi(self, Form):
         Form.setObjectName("Form")
         Form.resize(832, 637)
@@ -952,12 +951,12 @@ class Ui_Form(object):
         self.btn_listar_interpretes = QtWidgets.QPushButton(self.frame_3)
         self.btn_listar_interpretes.setObjectName("btn_listar_interpretes")
         self.verticalLayout_3.addWidget(self.btn_listar_interpretes)
-        self.btn_listar_temas = QtWidgets.QPushButton(self.frame_3)
-        self.btn_listar_temas.setObjectName("btn_listar_temas")
-        self.verticalLayout_3.addWidget(self.btn_listar_temas)
-        self.btn_buscar = QtWidgets.QPushButton(self.frame_3)
-        self.btn_buscar.setObjectName("btn_buscar")
-        self.verticalLayout_3.addWidget(self.btn_buscar)
+        self.btn_crear_discog = QtWidgets.QPushButton(self.frame_3)
+        self.btn_crear_discog.setObjectName("btn_crear_discog")
+        self.verticalLayout_3.addWidget(self.btn_crear_discog)
+        self.btn_crear_gen = QtWidgets.QPushButton(self.frame_3)
+        self.btn_crear_gen.setObjectName("btn_crear_gen")
+        self.verticalLayout_3.addWidget(self.btn_crear_gen)
         self.btn_eliminar = QtWidgets.QPushButton(self.frame_3)
         self.btn_eliminar.setStyleSheet("")
         self.btn_eliminar.setObjectName("btn_eliminar")
@@ -971,11 +970,13 @@ class Ui_Form(object):
         self.gridLayout_3.addWidget(self.frame, 0, 0, 1, 1)
 
         self.retranslateUi(Form)
-        self.stackedWidget.setCurrentIndex(6)
+        self.stackedWidget.setCurrentIndex(0)
         QtCore.QMetaObject.connectSlotsByName(Form)
 
 
 
+        
+        
         #--------------------Eventos principal--------------------------------------
         self.l = self.btn_listar.clicked.connect(lambda:self.stackedWidget.setCurrentWidget(self.page_principal))   #ok
         self.c = self.btn_crear_album.clicked.connect(lambda:self.stackedWidget.setCurrentWidget(self.page_crear_album))
@@ -986,6 +987,8 @@ class Ui_Form(object):
         self.g = self.btn_buscar.clicked.connect(lambda:self.stackedWidget.setCurrentWidget(self.page_buscar))
         self.m = self.btn_modificar.clicked.connect(lambda:self.stackedWidget.setCurrentWidget(self.page_modificar))
         self.d = self.btn_eliminar.clicked.connect(lambda:self.principal_controller.deleteProduct())  #ok
+        #--------------------End Events---------------------------------
+
 
         #--------------------Eventos Crear album--------------------------------------
 
@@ -994,18 +997,22 @@ class Ui_Form(object):
         self.comboBox_dicografica_2.addItems(self.principal_controller.discograficas())
         self.comboBox_formato_2.addItems(self.principal_controller.formatos())
 
-
         self.crear_album = self.boton_crear_2.clicked.connect(lambda:self.principal_controller.crear_nuevo_album(self.input_codigo_2.text(),self.input_nombre_2.text(),self.comboBox_interprete_2.currentText() ,self.comboBox_genero_2.currentText(), self.input_cantidaddetemas_2.text(), self.comboBox_dicografica_2.currentText(), self.comboBox_formato_2.currentText(), self.input_fechadelanzamiento_2.text(), self.input_precio_2.text(), self.input_stock_2.text(), self.input_caratula_2.text()))
+
+        #--------------------End Events---------------------------------
 
         #--------------------Eventos listar--------------------------------------
 
         self.actualizar = self.btn_actualizar.clicked.connect(lambda:self.principal_controller.listProducts())
 
- 
+        #--------------------End Events---------------------------------
+
         #--------------------Eventos Crear Interprete--------------------------------------
 
         self.inter = self.boton_cargar_interprete.clicked.connect(lambda:self.principal_controller.cargar_interprete(self.input_nombre_inter.text(), self.input_apellido_inter.text(), self.input_nacionalidad_inter.text(), self.input_foto_inter.text()))
 
+
+        #--------------------End Events---------------------------------
 
         #--------------------Eventos Crear Tema--------------------------------------
 
@@ -1016,40 +1023,25 @@ class Ui_Form(object):
         self.tema = self.boton_crear_tema.clicked.connect(lambda:self.principal_controller.cargar_tema(self.input_nombre_tema.text(), self.input_duracion.text(), self.input_autor.text(), self.input_compositor.text(), self.cB_id_album.currentText(), self.cB_id_interprete.currentText()))
 
 
+        #--------------------End Events---------------------------------
+
         #--------------------Eventos Listar Interprete--------------------------------------
 
         self.actualizar_inter = self.boton_actualizar_inter.clicked.connect(lambda:self.principal_controller.listar_inter())
 
+        #--------------------End Events---------------------------------
 
         #--------------------Eventos Listar temas--------------------------------------
 
         self.actualizar_temas = self.boton_actualizar_temas.clicked.connect(lambda:self.principal_controller.listar_temas())
 
+        #--------------------End Events---------------------------------
 
         #--------------------Eventos Buscar--------------------------------------
 
         self.buscar_temas = self.boton_buscar_tema.clicked.connect(lambda:self.principal_controller.busqueda_por_titulo_tema(self.input_buscar_tema.text()))
 
-        #--------------------Eventos Buscar para modificar--------------------------------------
-
-        self.comboBox.addItems(self.principal_controller.albumes())
-        self.buscar_album = self.boton_modif_buscar.clicked.connect(lambda:self.principal_controller.buscar_album_por_id(self.comboBox.currentText()))
-
-        #-> ¿llenado de combo box y seteo en los valores del album seleccionado para la modificacion
-
-        self.comboBox_interprete_2.addItems(self.principal_controller.interpretes())
-        self.comboBox_genero_2.addItems(self.principal_controller.generos())
-        self.comboBox_dicografica_2.addItems(self.principal_controller.discograficas())
-        self.comboBox_formato_2.addItems(self.principal_controller.formatos())
-
-
-        # item
-        item ="Legend Geek"
-  
-        # setting current item
-        self.combo_box.setCurrentText(item)
         #--------------------End Events---------------------------------
-
 
 
 
@@ -1072,10 +1064,10 @@ class Ui_Form(object):
         self.label_41.setText(_translate("Form", "Modificar"))
         self.label_46.setText(_translate("Form", "ID género:"))
         self.input_caratula_4.setPlaceholderText(_translate("Form", "Carátula"))
-        self.label.setText(_translate("Form", "Seleccione el Nombre del Album a modificar y luego modifique los campos que desee actualizar"))
+        self.label.setText(_translate("Form", "Seleccione el Codigo del Album a modificar y luego modifique los campos que desee actualizar"))
         self.input_fechadelanzamiento_4.setPlaceholderText(_translate("Form", "Fecha de lanzamiento"))
         self.boton_modif_act.setText(_translate("Form", "Actualizar"))
-        self.label_43.setText(_translate("Form", "Nombre del Album:"))
+        self.label_43.setText(_translate("Form", "Código:"))
         self.label_51.setText(_translate("Form", "Carátula:"))
         self.label_44.setText(_translate("Form", "Nombre:"))
         self.input_cantidaddetemas_4.setPlaceholderText(_translate("Form", "Cantidad de temas"))
@@ -1192,8 +1184,8 @@ class Ui_Form(object):
         self.btn_crear_tema.setText(_translate("Form", "Crear Tema"))
         self.btn_modificar.setText(_translate("Form", "Modificar"))
         self.btn_listar_interpretes.setText(_translate("Form", "Listar Interpretes"))
-        self.btn_listar_temas.setText(_translate("Form", "Listar Temas"))
-        self.btn_buscar.setText(_translate("Form", "Buscar"))
+        self.btn_crear_discog.setText(_translate("Form", "Listar Temas"))
+        self.btn_crear_gen.setText(_translate("Form", "Buscar"))
         self.btn_eliminar.setText(_translate("Form", "Eliminar"))
 
 

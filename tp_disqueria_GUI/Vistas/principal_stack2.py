@@ -32,13 +32,11 @@ class Ui_Form(object):
     def __init__(self):
         self.principal_controller = PrincipalController(self)
 
-
-
     def setupUi(self, Form):
         Form.setObjectName("Form")
-        Form.resize(832, 637)
-        self.gridLayout_3 = QtWidgets.QGridLayout(Form)
-        self.gridLayout_3.setObjectName("gridLayout_3")
+        Form.resize(1099, 704)
+        self.gridLayout_7 = QtWidgets.QGridLayout(Form)
+        self.gridLayout_7.setObjectName("gridLayout_7")
         self.frame = QtWidgets.QFrame(Form)
         self.frame.setStyleSheet("background-color:{rgba(140, 136, 255, 255);}")
         self.frame.setFrameShape(QtWidgets.QFrame.StyledPanel)
@@ -117,200 +115,6 @@ class Ui_Form(object):
         self.gridLayout.setObjectName("gridLayout")
         self.stackedWidget = QtWidgets.QStackedWidget(self.frame_2)
         self.stackedWidget.setObjectName("stackedWidget")
-        self.page_modificar = QtWidgets.QWidget()
-        self.page_modificar.setObjectName("page_modificar")
-        self.gridLayout_21 = QtWidgets.QGridLayout(self.page_modificar)
-        self.gridLayout_21.setObjectName("gridLayout_21")
-        self.gridLayout_20 = QtWidgets.QGridLayout()
-        self.gridLayout_20.setObjectName("gridLayout_20")
-        self.label_47 = QtWidgets.QLabel(self.page_modificar)
-        font = QtGui.QFont()
-        font.setFamily("Bell MT")
-        font.setPointSize(10)
-        font.setBold(True)
-        font.setWeight(75)
-        self.label_47.setFont(font)
-        self.label_47.setObjectName("label_47")
-        self.gridLayout_20.addWidget(self.label_47, 15, 0, 1, 2)
-        self.input_stock_4 = QtWidgets.QLineEdit(self.page_modificar)
-        font = QtGui.QFont()
-        font.setFamily("Bell MT")
-        font.setPointSize(10)
-        self.input_stock_4.setFont(font)
-        self.input_stock_4.setText("")
-        self.input_stock_4.setCursorPosition(0)
-        self.input_stock_4.setObjectName("input_stock_4")
-        self.gridLayout_20.addWidget(self.input_stock_4, 19, 2, 1, 1)
-        self.comboBox = QtWidgets.QComboBox(self.page_modificar)
-        self.comboBox.setObjectName("comboBox")
-        self.gridLayout_20.addWidget(self.comboBox, 4, 2, 1, 1)
-        self.label_40 = QtWidgets.QLabel(self.page_modificar)
-        font = QtGui.QFont()
-        font.setFamily("Bell MT")
-        font.setPointSize(10)
-        font.setBold(True)
-        font.setWeight(75)
-        self.label_40.setFont(font)
-        self.label_40.setObjectName("label_40")
-        self.gridLayout_20.addWidget(self.label_40, 12, 0, 1, 2)
-        self.boton_modif_buscar = QtWidgets.QPushButton(self.page_modificar)
-        self.boton_modif_buscar.setObjectName("boton_modif_buscar")
-        self.gridLayout_20.addWidget(self.boton_modif_buscar, 5, 0, 1, 3)
-        self.label_50 = QtWidgets.QLabel(self.page_modificar)
-        font = QtGui.QFont()
-        font.setFamily("Bell MT")
-        font.setPointSize(10)
-        font.setBold(True)
-        font.setWeight(75)
-        self.label_50.setFont(font)
-        self.label_50.setObjectName("label_50")
-        self.gridLayout_20.addWidget(self.label_50, 19, 0, 1, 2)
-        self.label_48 = QtWidgets.QLabel(self.page_modificar)
-        font = QtGui.QFont()
-        font.setFamily("Bell MT")
-        font.setPointSize(10)
-        font.setBold(True)
-        font.setWeight(75)
-        self.label_48.setFont(font)
-        self.label_48.setObjectName("label_48")
-        self.gridLayout_20.addWidget(self.label_48, 16, 0, 1, 2)
-        self.label_45 = QtWidgets.QLabel(self.page_modificar)
-        font = QtGui.QFont()
-        font.setFamily("Bell MT")
-        font.setPointSize(10)
-        font.setBold(True)
-        font.setWeight(75)
-        self.label_45.setFont(font)
-        self.label_45.setObjectName("label_45")
-        self.gridLayout_20.addWidget(self.label_45, 10, 0, 1, 2)
-        self.input_Nombre = QtWidgets.QLineEdit(self.page_modificar)
-        self.input_Nombre.setObjectName("input_Nombre")
-        self.gridLayout_20.addWidget(self.input_Nombre, 6, 2, 1, 1)
-        self.comboBox_interprete_4 = QtWidgets.QComboBox(self.page_modificar)
-        self.comboBox_interprete_4.setObjectName("comboBox_interprete_4")
-        self.gridLayout_20.addWidget(self.comboBox_interprete_4, 10, 2, 1, 1)
-        self.input_precio_4 = QtWidgets.QLineEdit(self.page_modificar)
-        font = QtGui.QFont()
-        font.setFamily("Bell MT")
-        font.setPointSize(10)
-        self.input_precio_4.setFont(font)
-        self.input_precio_4.setCursorPosition(0)
-        self.input_precio_4.setObjectName("input_precio_4")
-        self.gridLayout_20.addWidget(self.input_precio_4, 18, 2, 1, 1)
-        self.label_42 = QtWidgets.QLabel(self.page_modificar)
-        font = QtGui.QFont()
-        font.setFamily("Bell MT")
-        font.setPointSize(10)
-        font.setBold(True)
-        font.setWeight(75)
-        self.label_42.setFont(font)
-        self.label_42.setObjectName("label_42")
-        self.gridLayout_20.addWidget(self.label_42, 17, 0, 1, 2)
-        self.comboBox_dicografica_4 = QtWidgets.QComboBox(self.page_modificar)
-        self.comboBox_dicografica_4.setMouseTracking(False)
-        self.comboBox_dicografica_4.setObjectName("comboBox_dicografica_4")
-        self.gridLayout_20.addWidget(self.comboBox_dicografica_4, 15, 2, 1, 1)
-        self.label_49 = QtWidgets.QLabel(self.page_modificar)
-        font = QtGui.QFont()
-        font.setFamily("Bell MT")
-        font.setPointSize(10)
-        font.setBold(True)
-        font.setWeight(75)
-        self.label_49.setFont(font)
-        self.label_49.setObjectName("label_49")
-        self.gridLayout_20.addWidget(self.label_49, 18, 0, 1, 2)
-        self.label_41 = QtWidgets.QLabel(self.page_modificar)
-        font = QtGui.QFont()
-        font.setFamily("Bell MT")
-        font.setPointSize(12)
-        font.setBold(True)
-        font.setWeight(75)
-        self.label_41.setFont(font)
-        self.label_41.setStyleSheet("")
-        self.label_41.setAlignment(QtCore.Qt.AlignCenter)
-        self.label_41.setObjectName("label_41")
-        self.gridLayout_20.addWidget(self.label_41, 0, 0, 1, 3)
-        self.label_46 = QtWidgets.QLabel(self.page_modificar)
-        font = QtGui.QFont()
-        font.setFamily("Bell MT")
-        font.setPointSize(10)
-        font.setBold(True)
-        font.setWeight(75)
-        self.label_46.setFont(font)
-        self.label_46.setObjectName("label_46")
-        self.gridLayout_20.addWidget(self.label_46, 11, 0, 1, 2)
-        self.input_caratula_4 = QtWidgets.QLineEdit(self.page_modificar)
-        font = QtGui.QFont()
-        font.setFamily("Bell MT")
-        font.setPointSize(10)
-        self.input_caratula_4.setFont(font)
-        self.input_caratula_4.setCursorPosition(0)
-        self.input_caratula_4.setObjectName("input_caratula_4")
-        self.gridLayout_20.addWidget(self.input_caratula_4, 20, 2, 1, 1)
-        self.label = QtWidgets.QLabel(self.page_modificar)
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Preferred, QtWidgets.QSizePolicy.Minimum)
-        sizePolicy.setHorizontalStretch(0)
-        sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.label.sizePolicy().hasHeightForWidth())
-        self.label.setSizePolicy(sizePolicy)
-        self.label.setStyleSheet("background-color: rgb(59, 177, 177);")
-        self.label.setObjectName("label")
-        self.gridLayout_20.addWidget(self.label, 3, 0, 1, 3)
-        self.input_fechadelanzamiento_4 = QtWidgets.QLineEdit(self.page_modificar)
-        font = QtGui.QFont()
-        font.setFamily("Bell MT")
-        font.setPointSize(10)
-        self.input_fechadelanzamiento_4.setFont(font)
-        self.input_fechadelanzamiento_4.setCursorPosition(0)
-        self.input_fechadelanzamiento_4.setObjectName("input_fechadelanzamiento_4")
-        self.gridLayout_20.addWidget(self.input_fechadelanzamiento_4, 17, 2, 1, 1)
-        self.boton_modif_act = QtWidgets.QPushButton(self.page_modificar)
-        self.boton_modif_act.setObjectName("boton_modif_act")
-        self.gridLayout_20.addWidget(self.boton_modif_act, 21, 0, 1, 3)
-        self.label_43 = QtWidgets.QLabel(self.page_modificar)
-        font = QtGui.QFont()
-        font.setFamily("Bell MT")
-        font.setPointSize(10)
-        font.setBold(True)
-        font.setWeight(75)
-        self.label_43.setFont(font)
-        self.label_43.setObjectName("label_43")
-        self.gridLayout_20.addWidget(self.label_43, 4, 0, 1, 2)
-        self.comboBox_formato_4 = QtWidgets.QComboBox(self.page_modificar)
-        self.comboBox_formato_4.setMouseTracking(False)
-        self.comboBox_formato_4.setObjectName("comboBox_formato_4")
-        self.gridLayout_20.addWidget(self.comboBox_formato_4, 16, 2, 1, 1)
-        self.comboBox_genero_4 = QtWidgets.QComboBox(self.page_modificar)
-        self.comboBox_genero_4.setObjectName("comboBox_genero_4")
-        self.gridLayout_20.addWidget(self.comboBox_genero_4, 11, 2, 1, 1)
-        self.label_51 = QtWidgets.QLabel(self.page_modificar)
-        font = QtGui.QFont()
-        font.setFamily("Bell MT")
-        font.setPointSize(10)
-        font.setBold(True)
-        font.setWeight(75)
-        self.label_51.setFont(font)
-        self.label_51.setObjectName("label_51")
-        self.gridLayout_20.addWidget(self.label_51, 20, 0, 1, 2)
-        self.label_44 = QtWidgets.QLabel(self.page_modificar)
-        font = QtGui.QFont()
-        font.setFamily("Bell MT")
-        font.setPointSize(10)
-        font.setBold(True)
-        font.setWeight(75)
-        self.label_44.setFont(font)
-        self.label_44.setObjectName("label_44")
-        self.gridLayout_20.addWidget(self.label_44, 6, 0, 1, 2)
-        self.input_cantidaddetemas_4 = QtWidgets.QLineEdit(self.page_modificar)
-        font = QtGui.QFont()
-        font.setFamily("Bell MT")
-        font.setPointSize(10)
-        self.input_cantidaddetemas_4.setFont(font)
-        self.input_cantidaddetemas_4.setCursorPosition(0)
-        self.input_cantidaddetemas_4.setObjectName("input_cantidaddetemas_4")
-        self.gridLayout_20.addWidget(self.input_cantidaddetemas_4, 12, 2, 1, 1)
-        self.gridLayout_21.addLayout(self.gridLayout_20, 0, 0, 1, 1)
-        self.stackedWidget.addWidget(self.page_modificar)
         self.page_principal = QtWidgets.QWidget()
         self.page_principal.setObjectName("page_principal")
         self.gridLayout_9 = QtWidgets.QGridLayout(self.page_principal)
@@ -946,18 +750,15 @@ class Ui_Form(object):
         self.btn_crear_tema = QtWidgets.QPushButton(self.frame_3)
         self.btn_crear_tema.setObjectName("btn_crear_tema")
         self.verticalLayout_3.addWidget(self.btn_crear_tema)
-        self.btn_modificar = QtWidgets.QPushButton(self.frame_3)
-        self.btn_modificar.setObjectName("btn_modificar")
-        self.verticalLayout_3.addWidget(self.btn_modificar)
         self.btn_listar_interpretes = QtWidgets.QPushButton(self.frame_3)
         self.btn_listar_interpretes.setObjectName("btn_listar_interpretes")
         self.verticalLayout_3.addWidget(self.btn_listar_interpretes)
         self.btn_listar_temas = QtWidgets.QPushButton(self.frame_3)
         self.btn_listar_temas.setObjectName("btn_listar_temas")
         self.verticalLayout_3.addWidget(self.btn_listar_temas)
-        self.btn_buscar = QtWidgets.QPushButton(self.frame_3)
-        self.btn_buscar.setObjectName("btn_buscar")
-        self.verticalLayout_3.addWidget(self.btn_buscar)
+        self.boton_buscar = QtWidgets.QPushButton(self.frame_3)
+        self.boton_buscar.setObjectName("boton_buscar")
+        self.verticalLayout_3.addWidget(self.boton_buscar)
         self.btn_eliminar = QtWidgets.QPushButton(self.frame_3)
         self.btn_eliminar.setStyleSheet("")
         self.btn_eliminar.setObjectName("btn_eliminar")
@@ -968,14 +769,16 @@ class Ui_Form(object):
         self.verticalLayout_2.addWidget(self.frame_contenido)
         self.verticalLayout_2.setStretch(0, 1)
         self.verticalLayout_2.setStretch(1, 6)
-        self.gridLayout_3.addWidget(self.frame, 0, 0, 1, 1)
+        self.gridLayout_7.addWidget(self.frame, 0, 0, 1, 1)
 
         self.retranslateUi(Form)
-        self.stackedWidget.setCurrentIndex(6)
+        self.stackedWidget.setCurrentIndex(3)
         QtCore.QMetaObject.connectSlotsByName(Form)
 
 
 
+        
+        
         #--------------------Eventos principal--------------------------------------
         self.l = self.btn_listar.clicked.connect(lambda:self.stackedWidget.setCurrentWidget(self.page_principal))   #ok
         self.c = self.btn_crear_album.clicked.connect(lambda:self.stackedWidget.setCurrentWidget(self.page_crear_album))
@@ -983,9 +786,11 @@ class Ui_Form(object):
         self.t = self.btn_crear_tema.clicked.connect(lambda:self.stackedWidget.setCurrentWidget(self.page_crear_tema))
         self.i = self.btn_crear_inter.clicked.connect(lambda:self.stackedWidget.setCurrentWidget(self.page_crear_inter))
         self.f = self.btn_listar_interpretes.clicked.connect(lambda:self.stackedWidget.setCurrentWidget(self.page_listar_interpretes))
-        self.g = self.btn_buscar.clicked.connect(lambda:self.stackedWidget.setCurrentWidget(self.page_buscar))
-        self.m = self.btn_modificar.clicked.connect(lambda:self.stackedWidget.setCurrentWidget(self.page_modificar))
+        self.g = self.boton_buscar.clicked.connect(lambda:self.stackedWidget.setCurrentWidget(self.page_buscar))
+        
         self.d = self.btn_eliminar.clicked.connect(lambda:self.principal_controller.deleteProduct())  #ok
+        #--------------------End Events---------------------------------
+
 
         #--------------------Eventos Crear album--------------------------------------
 
@@ -994,18 +799,22 @@ class Ui_Form(object):
         self.comboBox_dicografica_2.addItems(self.principal_controller.discograficas())
         self.comboBox_formato_2.addItems(self.principal_controller.formatos())
 
-
         self.crear_album = self.boton_crear_2.clicked.connect(lambda:self.principal_controller.crear_nuevo_album(self.input_codigo_2.text(),self.input_nombre_2.text(),self.comboBox_interprete_2.currentText() ,self.comboBox_genero_2.currentText(), self.input_cantidaddetemas_2.text(), self.comboBox_dicografica_2.currentText(), self.comboBox_formato_2.currentText(), self.input_fechadelanzamiento_2.text(), self.input_precio_2.text(), self.input_stock_2.text(), self.input_caratula_2.text()))
+
+        #--------------------End Events---------------------------------
 
         #--------------------Eventos listar--------------------------------------
 
         self.actualizar = self.btn_actualizar.clicked.connect(lambda:self.principal_controller.listProducts())
 
- 
+        #--------------------End Events---------------------------------
+
         #--------------------Eventos Crear Interprete--------------------------------------
 
         self.inter = self.boton_cargar_interprete.clicked.connect(lambda:self.principal_controller.cargar_interprete(self.input_nombre_inter.text(), self.input_apellido_inter.text(), self.input_nacionalidad_inter.text(), self.input_foto_inter.text()))
 
+
+        #--------------------End Events---------------------------------
 
         #--------------------Eventos Crear Tema--------------------------------------
 
@@ -1016,41 +825,25 @@ class Ui_Form(object):
         self.tema = self.boton_crear_tema.clicked.connect(lambda:self.principal_controller.cargar_tema(self.input_nombre_tema.text(), self.input_duracion.text(), self.input_autor.text(), self.input_compositor.text(), self.cB_id_album.currentText(), self.cB_id_interprete.currentText()))
 
 
+        #--------------------End Events---------------------------------
+
         #--------------------Eventos Listar Interprete--------------------------------------
 
         self.actualizar_inter = self.boton_actualizar_inter.clicked.connect(lambda:self.principal_controller.listar_inter())
 
+        #--------------------End Events---------------------------------
 
         #--------------------Eventos Listar temas--------------------------------------
 
         self.actualizar_temas = self.boton_actualizar_temas.clicked.connect(lambda:self.principal_controller.listar_temas())
 
+        #--------------------End Events---------------------------------
 
         #--------------------Eventos Buscar--------------------------------------
 
         self.buscar_temas = self.boton_buscar_tema.clicked.connect(lambda:self.principal_controller.busqueda_por_titulo_tema(self.input_buscar_tema.text()))
 
-        #--------------------Eventos Buscar para modificar--------------------------------------
-
-        self.comboBox.addItems(self.principal_controller.albumes())
-        self.buscar_album = self.boton_modif_buscar.clicked.connect(lambda:self.principal_controller.buscar_album_por_id(self.comboBox.currentText()))
-
-        #-> ¿llenado de combo box y seteo en los valores del album seleccionado para la modificacion
-
-        self.comboBox_interprete_2.addItems(self.principal_controller.interpretes())
-        self.comboBox_genero_2.addItems(self.principal_controller.generos())
-        self.comboBox_dicografica_2.addItems(self.principal_controller.discograficas())
-        self.comboBox_formato_2.addItems(self.principal_controller.formatos())
-
-
-        # item
-        item ="Legend Geek"
-  
-        # setting current item
-        self.combo_box.setCurrentText(item)
         #--------------------End Events---------------------------------
-
-
 
 
 
@@ -1059,26 +852,6 @@ class Ui_Form(object):
         _translate = QtCore.QCoreApplication.translate
         Form.setWindowTitle(_translate("Form", "Form"))
         self.lbl_titulo.setText(_translate("Form", "<html><head/><body><p><span style=\" color:#000000;\">DISQUERÍA FORMOSA MUSICAL</span></p></body></html>"))
-        self.label_47.setText(_translate("Form", "ID discográfica:"))
-        self.input_stock_4.setPlaceholderText(_translate("Form", "Stock"))
-        self.label_40.setText(_translate("Form", "Cantidad de temas:"))
-        self.boton_modif_buscar.setText(_translate("Form", "Buscar"))
-        self.label_50.setText(_translate("Form", "Cantidad"))
-        self.label_48.setText(_translate("Form", "Formato"))
-        self.label_45.setText(_translate("Form", "ID intérprete:"))
-        self.input_precio_4.setPlaceholderText(_translate("Form", "Precio"))
-        self.label_42.setText(_translate("Form", "Fecha de lanzamiento:"))
-        self.label_49.setText(_translate("Form", "Precio:"))
-        self.label_41.setText(_translate("Form", "Modificar"))
-        self.label_46.setText(_translate("Form", "ID género:"))
-        self.input_caratula_4.setPlaceholderText(_translate("Form", "Carátula"))
-        self.label.setText(_translate("Form", "Seleccione el Nombre del Album a modificar y luego modifique los campos que desee actualizar"))
-        self.input_fechadelanzamiento_4.setPlaceholderText(_translate("Form", "Fecha de lanzamiento"))
-        self.boton_modif_act.setText(_translate("Form", "Actualizar"))
-        self.label_43.setText(_translate("Form", "Nombre del Album:"))
-        self.label_51.setText(_translate("Form", "Carátula:"))
-        self.label_44.setText(_translate("Form", "Nombre:"))
-        self.input_cantidaddetemas_4.setPlaceholderText(_translate("Form", "Cantidad de temas"))
         item = self.tabla_principal.horizontalHeaderItem(0)
         item.setText(_translate("Form", "id_album"))
         item = self.tabla_principal.horizontalHeaderItem(1)
@@ -1190,10 +963,9 @@ class Ui_Form(object):
         self.btn_crear_album.setText(_translate("Form", "Crear Album"))
         self.btn_crear_inter.setText(_translate("Form", "Crear Interprete"))
         self.btn_crear_tema.setText(_translate("Form", "Crear Tema"))
-        self.btn_modificar.setText(_translate("Form", "Modificar"))
         self.btn_listar_interpretes.setText(_translate("Form", "Listar Interpretes"))
         self.btn_listar_temas.setText(_translate("Form", "Listar Temas"))
-        self.btn_buscar.setText(_translate("Form", "Buscar"))
+        self.boton_buscar.setText(_translate("Form", "Buscar"))
         self.btn_eliminar.setText(_translate("Form", "Eliminar"))
 
 

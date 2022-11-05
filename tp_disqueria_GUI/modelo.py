@@ -13,7 +13,7 @@ class Conectar():
                 port = 3306,
                 user = 'root',
                 #password = 'g15566757',
-                db = 'disqueria1'
+                db = 'disqueria'
 
             )
         except mysql.connector.Error as descripcionError:
@@ -40,6 +40,20 @@ class Conectar():
         cur.close()
         return datos
 
+    def consulta_album_por_id(self, id_a):
+        cur = self.conexion.cursor()
+        cur.execute("SELECT * FROM album WHERE id_album = "+id_a)
+        datos = cur.fetchall()
+        cur.close()
+        return datos
+###########################################################
+    def consulta_interprete_por_id_tema(self, id_a):
+        cur = self.conexion.cursor()
+        cur.execute("SELECT * FROM interprete as i JOIN album as a ON i.id_interprete = "+id_a)###############
+        datos = cur.fetchall()
+        cur.close()
+        return datos
+###########################################################
     def consulta_albumes_por_artista (self):
         cur = self.conexion.cursor()
         cur.execute ("SELECT cod_album, album.nombre, interprete.nombre, interprete.apellido FROM album, interprete WHERE album.id_interprete = interprete.id_interprete ORDER BY interprete.apellido desc")
@@ -161,9 +175,10 @@ class Conectar():
 
     def busqueda_por_titulo_tema(self, nombre):
         cur = self.conexion.cursor()
+        nom = '%'+nombre+'%'
         sentenciaSQL = "SELECT * FROM tema WHERE UPPER(titulo) like UPPER(%s)"
         data = (
-            nombre,
+            nom,
         )
         cur.execute(sentenciaSQL, data)
         datos = cur.fetchall()

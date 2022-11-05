@@ -158,3 +158,8 @@ class PrincipalController():
             table.insertRow(fila)
             for columna, data in enumerate(album):
                 table.setItem(fila, columna, QtWidgets.QTableWidgetItem(str(data)))
+
+    def buscar_album_por_id(self, id_a):
+        con = mo.Conectar()
+        albums = con.consulta_album_por_id(id_a)
+        
