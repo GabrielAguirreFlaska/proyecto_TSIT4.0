@@ -13,7 +13,7 @@ class Conectar():
                 port = 3306,
                 user = 'root',
                 #password = 'g15566757',
-                db = 'disqueria'
+                db = 'disqueria1'
 
             )
         except mysql.connector.Error as descripcionError:
@@ -40,12 +40,46 @@ class Conectar():
         cur.close()
         return datos
 
-    def consulta_album_por_id(self, id_a):
+    def consulta_album_por_nombre(self, nombre):
         cur = self.conexion.cursor()
-        cur.execute("SELECT * FROM album WHERE id_album = "+id_a)
+        nom = '%'+nombre+'%'
+        sql = "SELECT * FROM album WHERE UPPER(nombre) like UPPER(%s)"
+        data = (
+            nom,
+        )
+        cur.execute(sql, data)
         datos = cur.fetchall()
         cur.close()
         return datos
+
+    def consulta_inter_por_id(self, id_inter):
+        cur = self.conexion.cursor()
+        cur.execute ("SELECT * FROM interprete WHERE id_interprete ="+str(id_inter))
+        datos = cur.fetchall()
+        cur.close()
+        return datos
+
+    def consulta_formato_por_id(self, id_f):
+        cur = self.conexion.cursor()
+        cur.execute ("SELECT * FROM formato WHERE id_formato ="+str(id_f))
+        datos = cur.fetchall()
+        cur.close()
+        return datos
+
+    def consulta_genero_por_id(self, id_g):
+        cur = self.conexion.cursor()
+        cur.execute ("SELECT * FROM genero WHERE id_genero ="+str(id_g))
+        datos = cur.fetchall()
+        cur.close()
+        return datos
+
+    def consulta_discografica_por_id(self, id_d):
+        cur = self.conexion.cursor()
+        cur.execute ("SELECT * FROM discografica WHERE id_discografica ="+str(id_d))
+        datos = cur.fetchall()
+        cur.close()
+        return datos
+
 ###########################################################
     def consulta_interprete_por_id_tema(self, id_a):
         cur = self.conexion.cursor()
@@ -69,27 +103,27 @@ class Conectar():
         return datos
 
     def insertar_album(self,album):
-        if self.conexion.is_connected():
+        # if self.conexion.is_connected():
 
-            cur = self.conexion.cursor()
-            sentenciaSQL = "insert into album values (null,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s);"
-            data = (
-            album.getCod_album(),
-            album.getNombre(),
-            album.getId_interprete(),
-            album.getId_genero(),
-            album.getCant_temas(),
-            album.getId_discografica(),
-            album.getId_formato(),
-            album.getFec_lanzamiento(),
-            album.getPrecio(),
-            album.getCantidad(),
-            album.getCaratula())
+        cur = self.conexion.cursor()
+        sentenciaSQL = "insert into album values (null,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s);"
+        data = (
+        album.getCod_album(),
+        album.getNombre(),
+        album.getId_interprete(),
+        album.getId_genero(),
+        album.getCant_temas(),
+        album.getId_discografica(),
+        album.getId_formato(),
+        album.getFec_lanzamiento(),
+        album.getPrecio(),
+        album.getCantidad(),
+        album.getCaratula())
 
-            cur.execute(sentenciaSQL,data)
-            self.conexion.commit()
-            self.conexion.close()
-            print("Álbum agregado correctamente")
+        cur.execute(sentenciaSQL,data)
+        self.conexion.commit()
+        cur.close()
+        #print("Álbum agregado correctamente")
 
     def eliminar_album(self, cod_album):
         cur = self.conexion.cursor()
@@ -99,6 +133,13 @@ class Conectar():
         self.conexion.commit()
         cur.close()
         return n, print("Album eliminado correctamente")
+
+    def modificar_album(self, id_a, cod, nom, id_i, id_g, temas, id_d, id_f, fecha, precio, stock, caratula):
+        cur = self.conexion.cursor()
+        sql = f"UPDATE album SET cod_album={cod}, nombre='{nom}', id_interprete={id_i}, id_genero={id_g}, cant_temas={temas}, id_discografica={id_d}, id_formato={id_f}, fec_lanzamiento={fecha}, precio={precio}, cantidad={stock}, caratula='{caratula}' WHERE id_album = {id_a};"
+        cur.execute(sql)
+        self.conexion.commit()
+        cur.close()
 
     def modificar_album_nombre(self,nombre, cod_album):
         cur = self.conexion.cursor()
@@ -131,34 +172,35 @@ class Conectar():
         return n, print("Stock del album modificado correctamente"), print(f"Nuevo stock: {cantidad}")
 
     def insertar_interprete(self,interprete):
-        if self.conexion.is_connected():
-            cur = self.conexion.cursor()
-            sentenciaSQL = "INSERT into interprete values(null,%s,%s,%s,%s)"
-            data = (
-            interprete.getNombre(),
-            interprete.getApellido(),
-            interprete.getNacionalidad(),
-            interprete.getFoto()
-            )
-            cur.execute(sentenciaSQL,data)
-            self.conexion.commit()
-            self.conexion.close()
+        # if self.conexion.is_connected():
+        cur = self.conexion.cursor()
+        sentenciaSQL = "INSERT into interprete values(null,%s,%s,%s,%s)"
+        data = (
+        interprete.getNombre(),
+        interprete.getApellido(),
+        interprete.getNacionalidad(),
+        interprete.getFoto()
+        )
+        cur.execute(sentenciaSQL,data)
+        self.conexion.commit()
+        print('ok')
+        self.conexion.close()
 
     def insertar_tema(self, tema):
-        if self.conexion.is_connected():
-            cur = self.conexion.cursor()
-            sentenciaSQL = "INSERT into tema values(null,%s,%s,%s,%s,%s,%s)"
-            data = (
-            tema.getTitulo(),
-            tema.getDuracion(),
-            tema.getAutor(),
-            tema.getCompositor(),
-            tema.getCod_album(),
-            tema.getId_interprete()
-            )
-            cur.execute(sentenciaSQL,data)
-            self.conexion.commit()
-            self.conexion.close()
+        # if self.conexion.is_connected():
+        cur = self.conexion.cursor()
+        sentenciaSQL = "INSERT into tema values(null,%s,%s,%s,%s,%s,%s)"
+        data = (
+        tema.getTitulo(),
+        tema.getDuracion(),
+        tema.getAutor(),
+        tema.getCompositor(),
+        tema.getCod_album(),
+        tema.getId_interprete()
+        )
+        cur.execute(sentenciaSQL,data)
+        self.conexion.commit()
+        cur.close()
 
 
 
@@ -170,7 +212,7 @@ class Conectar():
         )
         cur.execute(sentenciaSql, data)
         datos = cur.fetchone()
-        self.conexion.close()
+        cur.close()
         return datos, print(datos)
 
     def busqueda_por_titulo_tema(self, nombre):
@@ -182,7 +224,7 @@ class Conectar():
         )
         cur.execute(sentenciaSQL, data)
         datos = cur.fetchall()
-        self.conexion.close()
+        cur.close()
         return datos
 
 
@@ -191,6 +233,7 @@ class Conectar():
         sentenciaSQL = "SELECT * FROM interprete"
         cursor.execute(sentenciaSQL)
         resultados = cursor.fetchall()
+        cursor.close()
         return resultados
 
     def listar_tema(self):
@@ -198,6 +241,7 @@ class Conectar():
         sentenciaSQL = "SELECT * FROM tema"
         cursor.execute(sentenciaSQL)
         res = cursor.fetchall()
+        cursor.close()
         return res
 
     def listar_genero(self):
@@ -205,6 +249,7 @@ class Conectar():
         sentenciaSQL = "SELECT * FROM genero"
         cursor.execute(sentenciaSQL)
         resultados = cursor.fetchall()
+        cursor.close()
         return resultados
 
     def listar_discografica(self):
@@ -212,6 +257,7 @@ class Conectar():
         sentenciaSQL = "SELECT * FROM discografica"
         cursor.execute(sentenciaSQL)
         resultados = cursor.fetchall()
+        cursor.close()
         return resultados
 
     def listar_formato(self):
@@ -219,6 +265,7 @@ class Conectar():
         sentenciaSQL = "SELECT * FROM formato"
         cursor.execute(sentenciaSQL)
         resultados = cursor.fetchall()
+        cursor.close()
         return resultados
 
     def listar_album(self):
@@ -226,6 +273,7 @@ class Conectar():
         sentenciaSql = "SELECT id_album, cod_album, nombre, precio, cantidad FROM album"
         cursor.execute(sentenciaSql)
         resultados = cursor.fetchall()
+        cursor.close()
         return resultados
     
     #####################################################
@@ -235,6 +283,7 @@ class Conectar():
         sentenciaSql = "SELECT cod_album, nombre FROM album"
         cursor.execute(sentenciaSql)
         resultados = cursor.fetchall()
+        cursor.close()
         return resultados
 
     ######################################################
@@ -245,6 +294,7 @@ class Conectar():
         data = (nombre, apellido)
         cursor.execute(sentenciaSql, data)
         resultados = cursor.fetchall()
+        cursor.close()
         return resultados
 
     def id_album_por_nombre(self, nombre):
@@ -253,6 +303,7 @@ class Conectar():
         data = (nombre,)
         cursor.execute(sentenciaSql, data)
         resultados = cursor.fetchall()
+        cursor.close()
         return resultados
 
     def id_genero_por_nombre(self, genero):
@@ -261,6 +312,7 @@ class Conectar():
         data = (genero,)
         cursor.execute(sentenciaSql, data)
         res = cursor.fetchall()
+        cursor.close()
         return res
 
     def id_discografica_por_nombre(self, discografica):
@@ -269,6 +321,7 @@ class Conectar():
         data = (discografica,)
         cursor.execute(sentenciaSql, data)
         res = cursor.fetchall()
+        cursor.close()
         return res
 
     def id_formato_por_nombre(self, formato):
@@ -277,34 +330,8 @@ class Conectar():
         data = (formato,)
         cursor.execute(sentenciaSql, data)
         res = cursor.fetchall()
+        cursor.close()
         return res
-
-
-
-    #########################################################################
-    # def listar_interpretes_gui(self):
-    #     salida = []
-    #     cursor = self.conexion.cursor()
-    #     sentenciaSQL = "SELECT nombre, apellido FROM interprete"
-    #     cursor.execute(sentenciaSQL)
-    #     resultados = cursor.fetchall()
-    #     for res in resultados:
-    #         texto = res[0] + ' ' + res[1]
-    #         salida.append(texto)
-        
-    #     return salida
-#########################################################################
-    # def getProduct(self, cod):
-    #     with self.conn.cursor() as cursor:
-    #         sql = """SELECT * FROM album WHERE cod = %s"""
-    #         cursor.execute(sql,cod)
-    #         result = cursor.fetchone()
-    #         if result:
-    #             return result
-
-# con = Conectar()
-# con.listar_formato()
-
 
 
 
