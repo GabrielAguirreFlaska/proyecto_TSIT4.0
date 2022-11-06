@@ -20,7 +20,8 @@ class PrincipalController():
 
     def listProducts(self):
         con = mo.Conectar()
-        listado = con.consulta_albumes()
+        #listado = con.consulta_albumes()
+        listado = con.consulta_album()
         table = self.principal.tabla_principal
         table.setRowCount(0)
         for fila, album in enumerate(listado):

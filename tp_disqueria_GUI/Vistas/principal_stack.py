@@ -1051,7 +1051,7 @@ class Ui_Form(object):
         
         self.modificar = self.boton_modif_act.clicked.connect(lambda:self.principal_controller.actualizar_album())
         
-        
+
         #--------------------End Events---------------------------------
 
 
@@ -1130,11 +1130,11 @@ class Ui_Form(object):
         self.input_nombre_inter.setPlaceholderText(_translate("Form", "Nombre"))
         self.label_nombre.setText(_translate("Form", "Nombre:"))
         self.label_25.setText(_translate("Form", "Cargar Interprete"))
-        self.input_apellido_inter.setText(_translate("Form", "Apellido"))
+        self.input_apellido_inter.setPlaceholderText(_translate("Form", "Apellido"))
         self.input_apellido_inter.setPlaceholderText(_translate("Form", "Cantidad de temas"))
-        self.input_foto_inter.setText(_translate("Form", "Foto"))
+        self.input_foto_inter.setPlaceholderText(_translate("Form", "Foto"))
         self.input_foto_inter.setPlaceholderText(_translate("Form", "Carátula"))
-        self.input_nacionalidad_inter.setText(_translate("Form", "Nacionalidad"))
+        self.input_nacionalidad_inter.setPlaceholderText(_translate("Form", "Nacionalidad"))
         self.input_nacionalidad_inter.setPlaceholderText(_translate("Form", "Fecha de lanzamiento"))
         self.boton_cargar_interprete.setText(_translate("Form", "Cargar"))
         item = self.tabla_listar_interpretes.horizontalHeaderItem(0)
@@ -1177,20 +1177,20 @@ class Ui_Form(object):
         item.setText(_translate("Form", "id_interprete"))
         self.label_id_interprete.setText(_translate("Form", "ID intérprete:"))
         self.input_nombre_tema.setPlaceholderText(_translate("Form", "Nombre"))
-        self.input_duracion.setText(_translate("Form", "Duracion"))
+        self.input_duracion.setPlaceholderText(_translate("Form", "Duracion"))
         self.input_duracion.setPlaceholderText(_translate("Form", "Precio"))
         self.label_compositor.setText(_translate("Form", "Compositor:"))
         self.label_29.setText(_translate("Form", "Crear Tema"))
         self.label_duracion.setText(_translate("Form", "Duracion:"))
-        self.input_compositor.setText(_translate("Form", "Compositor"))
+        self.input_compositor.setPlaceholderText(_translate("Form", "Compositor"))
         self.input_compositor.setPlaceholderText(_translate("Form", "Cantidad de temas"))
-        self.input_autor.setText(_translate("Form", "Autor"))
+        self.input_autor.setPlaceholderText(_translate("Form", "Autor"))
         self.input_autor.setPlaceholderText(_translate("Form", "Stock"))
         self.label_nombre_2.setText(_translate("Form", "Nombre:"))
         self.label_autor.setText(_translate("Form", "Autor:"))
         self.label_id_album.setText(_translate("Form", "ID album:"))
         self.boton_crear_tema.setText(_translate("Form", "Crear"))
-        self.btn_listar.setText(_translate("Form", "Listar todo"))
+        self.btn_listar.setText(_translate("Form", "Listar Albums"))
         self.btn_crear_album.setText(_translate("Form", "Crear Album"))
         self.btn_crear_inter.setText(_translate("Form", "Crear Interprete"))
         self.btn_crear_tema.setText(_translate("Form", "Crear Tema"))
