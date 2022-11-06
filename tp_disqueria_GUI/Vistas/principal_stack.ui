@@ -6,14 +6,14 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1099</width>
-    <height>704</height>
+    <width>832</width>
+    <height>637</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>Form</string>
   </property>
-  <layout class="QGridLayout" name="gridLayout_7">
+  <layout class="QGridLayout" name="gridLayout_3">
    <item row="0" column="0">
     <widget class="QFrame" name="frame">
      <property name="styleSheet">
@@ -130,8 +130,358 @@ QLabel {
             <item row="0" column="0">
              <widget class="QStackedWidget" name="stackedWidget">
               <property name="currentIndex">
-               <number>3</number>
+               <number>7</number>
               </property>
+              <widget class="QWidget" name="page_modificar">
+               <layout class="QGridLayout" name="gridLayout_21">
+                <item row="0" column="0">
+                 <layout class="QGridLayout" name="gridLayout_20">
+                  <item row="20" column="0" colspan="2">
+                   <widget class="QLabel" name="label_42">
+                    <property name="font">
+                     <font>
+                      <family>Bell MT</family>
+                      <pointsize>10</pointsize>
+                      <weight>75</weight>
+                      <bold>true</bold>
+                     </font>
+                    </property>
+                    <property name="text">
+                     <string>Fecha de lanzamiento:</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="7" column="0" colspan="3">
+                   <widget class="QPushButton" name="boton_modif_buscar">
+                    <property name="text">
+                     <string>Buscar</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="18" column="0" colspan="2">
+                   <widget class="QLabel" name="label_47">
+                    <property name="font">
+                     <font>
+                      <family>Bell MT</family>
+                      <pointsize>10</pointsize>
+                      <weight>75</weight>
+                      <bold>true</bold>
+                     </font>
+                    </property>
+                    <property name="text">
+                     <string>ID discográfica:</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="8" column="0" colspan="2">
+                   <widget class="QLabel" name="label_2">
+                    <property name="font">
+                     <font>
+                      <pointsize>10</pointsize>
+                      <weight>75</weight>
+                      <bold>true</bold>
+                     </font>
+                    </property>
+                    <property name="text">
+                     <string>Codigo:</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="13" column="2">
+                   <widget class="QComboBox" name="comboBox_interprete_4"/>
+                  </item>
+                  <item row="14" column="0" colspan="2">
+                   <widget class="QLabel" name="label_46">
+                    <property name="font">
+                     <font>
+                      <family>Bell MT</family>
+                      <pointsize>10</pointsize>
+                      <weight>75</weight>
+                      <bold>true</bold>
+                     </font>
+                    </property>
+                    <property name="text">
+                     <string>ID género:</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="22" column="0" colspan="2">
+                   <widget class="QLabel" name="label_50">
+                    <property name="font">
+                     <font>
+                      <family>Bell MT</family>
+                      <pointsize>10</pointsize>
+                      <weight>75</weight>
+                      <bold>true</bold>
+                     </font>
+                    </property>
+                    <property name="text">
+                     <string>Cantidad</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="14" column="2">
+                   <widget class="QComboBox" name="comboBox_genero_4"/>
+                  </item>
+                  <item row="4" column="2">
+                   <widget class="QComboBox" name="comboBox"/>
+                  </item>
+                  <item row="15" column="2">
+                   <widget class="QLineEdit" name="input_cantidaddetemas_4">
+                    <property name="font">
+                     <font>
+                      <family>Bell MT</family>
+                      <pointsize>10</pointsize>
+                     </font>
+                    </property>
+                    <property name="cursorPosition">
+                     <number>0</number>
+                    </property>
+                    <property name="placeholderText">
+                     <string>Cantidad de temas</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="23" column="2">
+                   <widget class="QLineEdit" name="input_caratula_4">
+                    <property name="font">
+                     <font>
+                      <family>Bell MT</family>
+                      <pointsize>10</pointsize>
+                     </font>
+                    </property>
+                    <property name="cursorPosition">
+                     <number>0</number>
+                    </property>
+                    <property name="placeholderText">
+                     <string>Carátula</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="23" column="0" colspan="2">
+                   <widget class="QLabel" name="label_51">
+                    <property name="font">
+                     <font>
+                      <family>Bell MT</family>
+                      <pointsize>10</pointsize>
+                      <weight>75</weight>
+                      <bold>true</bold>
+                     </font>
+                    </property>
+                    <property name="text">
+                     <string>Carátula:</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="0" column="0" colspan="3">
+                   <widget class="QLabel" name="label_41">
+                    <property name="font">
+                     <font>
+                      <family>Bell MT</family>
+                      <pointsize>12</pointsize>
+                      <weight>75</weight>
+                      <bold>true</bold>
+                     </font>
+                    </property>
+                    <property name="styleSheet">
+                     <string notr="true"/>
+                    </property>
+                    <property name="text">
+                     <string>Modificar</string>
+                    </property>
+                    <property name="alignment">
+                     <set>Qt::AlignCenter</set>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="4" column="0" colspan="2">
+                   <widget class="QLabel" name="label_43">
+                    <property name="font">
+                     <font>
+                      <family>Bell MT</family>
+                      <pointsize>10</pointsize>
+                      <weight>75</weight>
+                      <bold>true</bold>
+                     </font>
+                    </property>
+                    <property name="text">
+                     <string>Nombre</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="22" column="2">
+                   <widget class="QLineEdit" name="input_stock_4">
+                    <property name="font">
+                     <font>
+                      <family>Bell MT</family>
+                      <pointsize>10</pointsize>
+                     </font>
+                    </property>
+                    <property name="text">
+                     <string/>
+                    </property>
+                    <property name="cursorPosition">
+                     <number>0</number>
+                    </property>
+                    <property name="placeholderText">
+                     <string>Stock</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="19" column="2">
+                   <widget class="QComboBox" name="comboBox_formato_4">
+                    <property name="mouseTracking">
+                     <bool>false</bool>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="20" column="2">
+                   <widget class="QLineEdit" name="input_fechadelanzamiento_4">
+                    <property name="font">
+                     <font>
+                      <family>Bell MT</family>
+                      <pointsize>10</pointsize>
+                     </font>
+                    </property>
+                    <property name="cursorPosition">
+                     <number>0</number>
+                    </property>
+                    <property name="placeholderText">
+                     <string>Fecha de lanzamiento</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="19" column="0" colspan="2">
+                   <widget class="QLabel" name="label_48">
+                    <property name="font">
+                     <font>
+                      <family>Bell MT</family>
+                      <pointsize>10</pointsize>
+                      <weight>75</weight>
+                      <bold>true</bold>
+                     </font>
+                    </property>
+                    <property name="text">
+                     <string>Formato</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="15" column="0" colspan="2">
+                   <widget class="QLabel" name="label_40">
+                    <property name="font">
+                     <font>
+                      <family>Bell MT</family>
+                      <pointsize>10</pointsize>
+                      <weight>75</weight>
+                      <bold>true</bold>
+                     </font>
+                    </property>
+                    <property name="text">
+                     <string>Cantidad de temas:</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="3" column="0" colspan="3">
+                   <widget class="QLabel" name="label">
+                    <property name="sizePolicy">
+                     <sizepolicy hsizetype="Preferred" vsizetype="Minimum">
+                      <horstretch>0</horstretch>
+                      <verstretch>0</verstretch>
+                     </sizepolicy>
+                    </property>
+                    <property name="styleSheet">
+                     <string notr="true">background-color: rgb(59, 177, 177);</string>
+                    </property>
+                    <property name="text">
+                     <string>Seleccione el Codigo del Album a modificar y luego modifique los campos que desee actualizar</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="24" column="0" colspan="3">
+                   <widget class="QPushButton" name="boton_modif_act">
+                    <property name="text">
+                     <string>Actualizar</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="18" column="2">
+                   <widget class="QComboBox" name="comboBox_discografica_4">
+                    <property name="mouseTracking">
+                     <bool>false</bool>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="21" column="0" colspan="2">
+                   <widget class="QLabel" name="label_49">
+                    <property name="font">
+                     <font>
+                      <family>Bell MT</family>
+                      <pointsize>10</pointsize>
+                      <weight>75</weight>
+                      <bold>true</bold>
+                     </font>
+                    </property>
+                    <property name="text">
+                     <string>Precio:</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="21" column="2">
+                   <widget class="QLineEdit" name="input_precio_4">
+                    <property name="font">
+                     <font>
+                      <family>Bell MT</family>
+                      <pointsize>10</pointsize>
+                     </font>
+                    </property>
+                    <property name="cursorPosition">
+                     <number>0</number>
+                    </property>
+                    <property name="placeholderText">
+                     <string>Precio</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="13" column="0" colspan="2">
+                   <widget class="QLabel" name="label_45">
+                    <property name="font">
+                     <font>
+                      <family>Bell MT</family>
+                      <pointsize>10</pointsize>
+                      <weight>75</weight>
+                      <bold>true</bold>
+                     </font>
+                    </property>
+                    <property name="text">
+                     <string>ID intérprete:</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="9" column="2">
+                   <widget class="QLineEdit" name="input_Nombre"/>
+                  </item>
+                  <item row="9" column="0" colspan="2">
+                   <widget class="QLabel" name="label_44">
+                    <property name="font">
+                     <font>
+                      <family>Bell MT</family>
+                      <pointsize>10</pointsize>
+                      <weight>75</weight>
+                      <bold>true</bold>
+                     </font>
+                    </property>
+                    <property name="text">
+                     <string>Nombre del Album:</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="8" column="2">
+                   <widget class="QLineEdit" name="input_codigo_4"/>
+                  </item>
+                 </layout>
+                </item>
+               </layout>
+              </widget>
               <widget class="QWidget" name="page_principal">
                <layout class="QGridLayout" name="gridLayout_9">
                 <item row="0" column="0">
@@ -329,7 +679,7 @@ QLabel {
                      <widget class="QComboBox" name="comboBox_genero_2"/>
                     </item>
                     <item row="13" column="2">
-                     <widget class="QComboBox" name="comboBox_dicografica_2">
+                     <widget class="QComboBox" name="comboBox_discografica_2">
                       <property name="mouseTracking">
                        <bool>false</bool>
                       </property>
@@ -1283,21 +1633,28 @@ padding-right: 10px;</string>
              </widget>
             </item>
             <item>
-             <widget class="QPushButton" name="btn_crear_formato">
+             <widget class="QPushButton" name="btn_modificar">
+              <property name="text">
+               <string>Modificar</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QPushButton" name="btn_listar_interpretes">
               <property name="text">
                <string>Listar Interpretes</string>
               </property>
              </widget>
             </item>
             <item>
-             <widget class="QPushButton" name="btn_crear_discog">
+             <widget class="QPushButton" name="btn_listar_temas">
               <property name="text">
                <string>Listar Temas</string>
               </property>
              </widget>
             </item>
             <item>
-             <widget class="QPushButton" name="btn_crear_gen">
+             <widget class="QPushButton" name="btn_buscar">
               <property name="text">
                <string>Buscar</string>
               </property>

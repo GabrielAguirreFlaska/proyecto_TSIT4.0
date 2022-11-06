@@ -66,13 +66,14 @@ class PrincipalController():
     #     self.principal.ui.setupUi(self.principal.Form)
     #     self.principal.Form.show()
 
-    def crear_nuevo_album(self, cod_album, nombre, interprete, genero,cant_temas, discografica, formato, fec_lanzamiento, precio, cantidad, caratula):
-        con = mo.Conectar()
+    def crear_nuevo_album(self, cod_album, nombre, interprete, genero,cant_temas, discografica, formato, fec_lanzamiento = 0, precio = 0, cantidad = 0, caratula = 'n'):
+        self.con = mo.Conectar()
+        print(cod_album, nombre, interprete, genero,cant_temas, discografica, formato, fec_lanzamiento, precio, cantidad, caratula)
         nombre_apellido = interprete.split(maxsplit=1)
-        id_interprete = con.id_interprete_por_nombre(nombre_apellido[0], nombre_apellido[1])
-        id_genero = con.id_genero_por_nombre(genero)
-        id_discografica = con.id_discografica_por_nombre(discografica)
-        id_formato = con.id_formato_por_nombre(formato)
+        id_interprete = self.con.id_interprete_por_nombre(nombre_apellido[0], nombre_apellido[1])
+        id_genero = self.con.id_genero_por_nombre(genero)
+        id_discografica = self.con.id_discografica_por_nombre(discografica)
+        id_formato = self.con.id_formato_por_nombre(formato)
         nuevoAlbum = mo.Album(0,cod_album,nombre,id_interprete[0][0],id_genero[0][0],cant_temas,id_discografica[0][0],id_formato[0][0],fec_lanzamiento,precio,cantidad,caratula)
         self.con.insertar_album(nuevoAlbum)
                 
@@ -130,31 +131,102 @@ class PrincipalController():
 #-----------------fin-------------------------
 
     def cargar_interprete(self, nombre, apellido, nacionalidad, foto):
-        con = mo.Conectar()
+        self.con = mo.Conectar()
         interprete = mo.Interprete(0, nombre, apellido, nacionalidad, foto)
         self.con.insertar_interprete(interprete)
 
     def cargar_formato(self, nombre):
-        con = mo.Conectar()
+        self.con = mo.Conectar()
         formato = mo.Formato(0, nombre)
         self.con.insertar_formato(formato)
 
     def cargar_tema(self, nombre, duracion, autor, compositor, album, interprete):
-        con = mo.Conectar()
-        id_album = con.id_album_por_nombre(album)
+        self.con = mo.Conectar()
+        id_album = self.con.id_album_por_nombre(album)
         nombre_interprete = interprete.split(maxsplit=1)
-        id_interprete = con.id_interprete_por_nombre(nombre_interprete[0], nombre_interprete[1])
+        id_interprete = self.con.id_interprete_por_nombre(nombre_interprete[0], nombre_interprete[1])
         print(id_album, '###############', id_interprete)
         tema = mo.Tema(0,nombre, duracion, autor, compositor, id_album[0][0], id_interprete[0][0])
         self.con.insertar_tema(tema)
 
     def busqueda_por_titulo_tema(self, nombre):
-        con = mo.Conectar()
-        tema = con.busqueda_por_titulo_tema(nombre)
+        self.con = mo.Conectar()
+        tema = self.con.busqueda_por_titulo_tema(nombre)
         table = self.principal.tabla_buscar_tema
         table.setRowCount(0)
-        print(tema)
         for fila, album in enumerate(tema):
             table.insertRow(fila)
             for columna, data in enumerate(album):
                 table.setItem(fila, columna, QtWidgets.QTableWidgetItem(str(data)))
+
+    def buscar_inter_por_id(self, id_i):
+        self.con = mo.Conectar()
+        interprete = self.con.consulta_inter_por_id(id_i)
+        return interprete
+
+    def comboBox_crear_tema(self):
+        self.principal.cB_id_interprete.addItems(self.interpretes())
+        self.principal.cB_id_album.addItems(self.albumes())
+
+    def comboBox_crear_album(self):
+        self.principal.comboBox_interprete_2.addItems(self.interpretes())
+        self.principal.comboBox_genero_2.addItems(self.generos())
+        self.principal.comboBox_discografica_2.addItems(self.discograficas())
+        self.principal.comboBox_formato_2.addItems(self.formatos())
+
+    def comboBox_modificar(self):
+        self.principal.comboBox.addItems(self.albumes())
+        self.principal.comboBox_interprete_4.addItems(self.interpretes())
+        self.principal.comboBox_genero_4.addItems(self.generos())
+        self.principal.comboBox_discografica_4.addItems(self.discograficas())
+        self.principal.comboBox_formato_4.addItems(self.formatos())
+
+
+    def buscar_album_por_nombre_gui_modif(self, nombre):
+        con = mo.Conectar()
+        albums = con.consulta_album_por_nombre(nombre)[0]
+        inter = con.consulta_inter_por_id(albums[3])[0]
+        #inter = self.buscar_inter_por_id(albums[3])
+        gen = con.consulta_genero_por_id(albums[4])[0]
+        disc = con.consulta_discografica_por_id(albums[6])[0]
+        form = con.consulta_formato_por_id(albums[7])[0]
+
+
+        #----LLeno los cb con los datos del album seleccionado
+        self.principal.comboBox_interprete_4.setCurrentText(inter[1]+' '+inter[2])
+        self.principal.comboBox_genero_4.setCurrentText(gen[1])
+        self.principal.comboBox_discografica_4.setCurrentText(disc[1])
+        self.principal.comboBox_formato_4.setCurrentText(form[1])
+        #----LLeno los  Line edit con los datos del album seleccionado
+        self.principal.input_Nombre.setText(str(albums[2]))
+        self.principal.input_cantidaddetemas_4.setText(str(albums[5]))
+        self.principal.input_fechadelanzamiento_4.setText(str(albums[8]))
+        self.principal.input_precio_4.setText(str(albums[9]))
+        self.principal.input_stock_4.setText(str(albums[10]))
+        self.principal.input_caratula_4.setText(str(albums[11]))
+        self.principal.input_codigo_4.setText(str(albums[1]))
+
+        
+    def actualizar_album(self):
+        con = mo.Conectar()
+        albums = con.consulta_album_por_nombre(self.principal.comboBox.currentText())[0][0]
+        #id_a = con.consulta_inter_por_id(albums[3])[0]
+        codigo = self.principal.input_codigo_4.text()
+        nombre = self.principal.input_Nombre.text()
+        nombre_apellido = (self.principal.comboBox_interprete_4.currentText()).split()
+        id_inter = con.id_interprete_por_nombre(nombre_apellido[0],nombre_apellido[1])[0][0]
+        id_genero = con.id_genero_por_nombre(self.principal.comboBox_genero_4.currentText())[0][0]
+        temas = self.principal.input_cantidaddetemas_4.text()
+        discog = con.id_discografica_por_nombre(self.principal.comboBox_discografica_4.currentText())[0][0]
+        formato = con.id_formato_por_nombre(self.principal.comboBox_formato_4.currentText())[0][0]
+        fecha = self.principal.input_fechadelanzamiento_4.text()
+        if fecha == 'None':
+            fecha = '0000-00-00'
+        precio = self.principal.input_precio_4.text()
+        stock = self.principal.input_stock_4.text()
+        caratula = self.principal.input_caratula_4.text()
+        print(albums, codigo, nombre, id_inter, id_genero, temas, discog, formato, fecha, precio, stock, caratula)
+        con.modificar_album(albums, codigo, nombre, id_inter, id_genero, temas, discog, formato, fecha, precio, stock, caratula)
+
+
+        pass
