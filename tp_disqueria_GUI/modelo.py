@@ -39,6 +39,13 @@ class Conectar():
         datos = cur.fetchall()
         cur.close()
         return datos
+    
+    def consulta_album(self):
+        cur = self.conexion.cursor()
+        cur.execute("SELECT * FROM album ORDER BY nombre ASC")
+        datos = cur.fetchall()
+        cur.close()
+        return datos
 
     def consulta_album_por_nombre(self, nombre):
         cur = self.conexion.cursor()
@@ -488,7 +495,7 @@ class AlbumParaBusqueda():
         return self.nombre
 
 class Album():
-    def __init__(self,id_album,cod_album,nombre,id_interprete,id_genero,cant_temas,id_discografica,id_formato,fec_lanzamiento,precio,cantidad,caratula) -> None:
+    def __init__(self,id_album=0,cod_album=0,nombre=0,id_interprete=0,id_genero=0,cant_temas=0,id_discografica=0,id_formato=0,fec_lanzamiento=0,precio=0,cantidad=0,caratula=0) -> None:
         self.id_album = id_album
         self.cod_album = cod_album
         self.nombre = nombre
