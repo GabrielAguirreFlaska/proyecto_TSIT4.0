@@ -218,7 +218,7 @@ class PrincipalController():
         msg.setText('¡Album Actualizado exitosamente!')
         msg.exec_()
         # self.principal.comboBox.clear()
-        # self.comboBox_modificar()
+        self.comboBox_modificar()
 
     def abrir_eliminar(self, Ui_Eliminar):
         self.principal.Form = QtWidgets.QWidget()
