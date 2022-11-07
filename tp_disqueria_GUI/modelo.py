@@ -1,6 +1,4 @@
-from os import curdir
-from unittest.util import _count_diff_all_purpose
-from colorama import Cursor
+
 import mysql.connector
 from rich import print
 
@@ -13,7 +11,7 @@ class Conectar():
                 port = 3306,
                 user = 'root',
                 #password = 'g15566757',
-                db = 'disqueria1'
+                db = 'disqueria'
 
             )
         except mysql.connector.Error as descripcionError:
@@ -49,12 +47,9 @@ class Conectar():
 
     def consulta_album_por_nombre(self, nombre):
         cur = self.conexion.cursor()
-        nom = '%'+nombre+'%'
-        sql = "SELECT * FROM album WHERE UPPER(nombre) like UPPER(%s)"
-        data = (
-            nom,
-        )
-        cur.execute(sql, data)
+        nom = nombre
+        sql = f"SELECT * FROM album WHERE UPPER(nombre) = UPPER('{nom}')"
+        cur.execute(sql)
         datos = cur.fetchall()
         cur.close()
         return datos
@@ -110,8 +105,6 @@ class Conectar():
         return datos
 
     def insertar_album(self,album):
-        # if self.conexion.is_connected():
-
         cur = self.conexion.cursor()
         sentenciaSQL = "insert into album values (null,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s);"
         data = (
@@ -130,7 +123,6 @@ class Conectar():
         cur.execute(sentenciaSQL,data)
         self.conexion.commit()
         cur.close()
-        #print("Álbum agregado correctamente")
 
     def eliminar_album(self, cod_album):
         cur = self.conexion.cursor()
@@ -139,7 +131,7 @@ class Conectar():
         n = cur.rowcount
         self.conexion.commit()
         cur.close()
-        return n, print("Album eliminado correctamente")
+        return n
 
     def modificar_album(self, id_a, cod, nom, id_i, id_g, temas, id_d, id_f, fecha, precio, stock, caratula):
         cur = self.conexion.cursor()
@@ -148,38 +140,37 @@ class Conectar():
         self.conexion.commit()
         cur.close()
 
-    def modificar_album_nombre(self,nombre, cod_album):
-        cur = self.conexion.cursor()
-        sentenciaSql = "UPDATE album SET nombre = %s WHERE cod_album = %s"
-        data = (nombre, cod_album)
-        cur.execute(sentenciaSql, data)
-        n = cur.rowcount
-        self.conexion.commit()
-        cur.close()
-        return n, print("Nombre del album modificado correctamente"), print(f"Nuevo nombre: {nombre}")
+    # def modificar_album_nombre(self,nombre, cod_album):
+    #     cur = self.conexion.cursor()
+    #     sentenciaSql = "UPDATE album SET nombre = %s WHERE cod_album = %s"
+    #     data = (nombre, cod_album)
+    #     cur.execute(sentenciaSql, data)
+    #     n = cur.rowcount
+    #     self.conexion.commit()
+    #     cur.close()
+    #     return n
 
-    def modificar_album_precio(self,precio, cod_album):
-        cur = self.conexion.cursor()
-        sentenciaSql = "UPDATE album SET precio = %s WHERE cod_album = %s"
-        data = (precio, cod_album)
-        cur.execute(sentenciaSql, data)
-        n = cur.rowcount
-        self.conexion.commit()
-        cur.close()
-        return n, print("Precio del album modificado correctamente"), print(f"Nuevo precio: {precio}")
+    # def modificar_album_precio(self,precio, cod_album):
+    #     cur = self.conexion.cursor()
+    #     sentenciaSql = "UPDATE album SET precio = %s WHERE cod_album = %s"
+    #     data = (precio, cod_album)
+    #     cur.execute(sentenciaSql, data)
+    #     n = cur.rowcount
+    #     self.conexion.commit()
+    #     cur.close()
+    #     return n, print("Precio del album modificado correctamente"), print(f"Nuevo precio: {precio}")
     
-    def modificar_album_cantidad(self,cantidad, cod_album):
-        cur = self.conexion.cursor()
-        sentenciaSql = "UPDATE album SET cantidad = %s WHERE cod_album = %s"
-        data = (cantidad, cod_album)
-        cur.execute(sentenciaSql, data)
-        n = cur.rowcount
-        self.conexion.commit()
-        cur.close()
-        return n, print("Stock del album modificado correctamente"), print(f"Nuevo stock: {cantidad}")
+    # def modificar_album_cantidad(self,cantidad, cod_album):
+    #     cur = self.conexion.cursor()
+    #     sentenciaSql = "UPDATE album SET cantidad = %s WHERE cod_album = %s"
+    #     data = (cantidad, cod_album)
+    #     cur.execute(sentenciaSql, data)
+    #     n = cur.rowcount
+    #     self.conexion.commit()
+    #     cur.close()
+    #     return n, print("Stock del album modificado correctamente"), print(f"Nuevo stock: {cantidad}")
 
     def insertar_interprete(self,interprete):
-        # if self.conexion.is_connected():
         cur = self.conexion.cursor()
         sentenciaSQL = "INSERT into interprete values(null,%s,%s,%s,%s)"
         data = (
@@ -190,11 +181,9 @@ class Conectar():
         )
         cur.execute(sentenciaSQL,data)
         self.conexion.commit()
-        print('ok')
         self.conexion.close()
 
     def insertar_tema(self, tema):
-        # if self.conexion.is_connected():
         cur = self.conexion.cursor()
         sentenciaSQL = "INSERT into tema values(null,%s,%s,%s,%s,%s,%s)"
         data = (
@@ -211,16 +200,16 @@ class Conectar():
 
 
 
-    def busqueda_por_nombre_album(self, album):
-        cur = self.conexion.cursor()
-        sentenciaSql = "SELECT cod_album, nombre, precio, cantidad FROM album WHERE nombre like %s"
-        data = (
-            album.getNombre(),
-        )
-        cur.execute(sentenciaSql, data)
-        datos = cur.fetchone()
-        cur.close()
-        return datos, print(datos)
+    # def busqueda_por_nombre_album(self, album):
+    #     cur = self.conexion.cursor()
+    #     sentenciaSql = "SELECT cod_album, nombre, precio, cantidad FROM album WHERE nombre like %s"
+    #     data = (
+    #         album.getNombre(),
+    #     )
+    #     cur.execute(sentenciaSql, data)
+    #     datos = cur.fetchone()
+    #     cur.close()
+    #     return datos, print(datos)
 
     def busqueda_por_titulo_tema(self, nombre):
         cur = self.conexion.cursor()
@@ -283,23 +272,22 @@ class Conectar():
         cursor.close()
         return resultados
     
-    #####################################################
+    # #####################################################
 
-    def listar_album_cB(self):
+    # def listar_album_cB(self):
+    #     cursor = self.conexion.cursor()
+    #     sentenciaSql = "SELECT cod_album, nombre FROM album"
+    #     cursor.execute(sentenciaSql)
+    #     resultados = cursor.fetchall()
+    #     cursor.close()
+    #     return resultados
+
+    # ######################################################
+
+    def id_interprete_por_nombre(self, nombre):
         cursor = self.conexion.cursor()
-        sentenciaSql = "SELECT cod_album, nombre FROM album"
-        cursor.execute(sentenciaSql)
-        resultados = cursor.fetchall()
-        cursor.close()
-        return resultados
-
-    ######################################################
-
-    def id_interprete_por_nombre(self, nombre, apellido):
-        cursor = self.conexion.cursor()
-        sentenciaSql = "SELECT id_interprete FROM interprete WHERE nombre LIKE %s AND apellido LIKE %s"
-        data = (nombre, apellido)
-        cursor.execute(sentenciaSql, data)
+        sql = f"SELECT id_interprete FROM interprete WHERE CONCAT (nombre,' ', apellido) = '{nombre}';"
+        cursor.execute(sql)
         resultados = cursor.fetchall()
         cursor.close()
         return resultados
@@ -562,6 +550,3 @@ class Album():
     def __str__(self) -> str:
         return str(self.id_album) +' '+ str(self.cod_album) +' '+ self.nombre +' '+ str(self.id_interprete) +' '+ str(self.id_genero) +' '+ str(self.cant_temas) +' '+ str(self.id_discografica) +' '+ str(self.id_formato) +' '+ self.fec_lanzamiento +' '+ str(self.precio) +' '+ str(self.cantidad) +' '+ self.caratula
 
-
-# con = Conectar()
-# con.eliminar_album(1234567)

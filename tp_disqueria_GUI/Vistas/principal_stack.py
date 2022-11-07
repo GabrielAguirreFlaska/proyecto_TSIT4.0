@@ -9,21 +9,17 @@
 
 import sys
 import os
-from rich import print
-from rich.console import Console
 
-console= Console()
 
 myDir = os.getcwd()
 sys.path.append(myDir)
-console.print("\n+-------------------------------------------+", style="bold blue")
-console.print("|         DISQUERÍA FORMOSA MUSICAL         |", style="bold blue")
-console.print("+-------------------------------------------+\n", style="bold blue")
-print(myDir)
+
 
 from tp_disqueria_GUI.ControladoresGUI.PrincipalController_stack import PrincipalController
+from tp_disqueria_GUI.Vistas.eliminar import Ui_Eliminar
 # from tp_disqueria_GUI.Vistas.crearalbumnuevo_v2 import Ui_CrearProducto
 from PyQt5 import QtCore, QtGui, QtWidgets
+
 
 class Ui_Form(object):
 
@@ -34,7 +30,7 @@ class Ui_Form(object):
 
     def setupUi(self, Form):
         Form.setObjectName("Form")
-        Form.resize(832, 637)
+        Form.resize(900, 600)
         self.gridLayout_3 = QtWidgets.QGridLayout(Form)
         self.gridLayout_3.setObjectName("gridLayout_3")
         self.frame = QtWidgets.QFrame(Form)
@@ -267,6 +263,7 @@ class Ui_Form(object):
         sizePolicy.setVerticalStretch(0)
         sizePolicy.setHeightForWidth(self.label.sizePolicy().hasHeightForWidth())
         self.label.setSizePolicy(sizePolicy)
+        self.label.setAlignment(QtCore.Qt.AlignCenter)
         self.label.setStyleSheet("background-color: rgb(59, 177, 177);")
         self.label.setObjectName("label")
         self.gridLayout_20.addWidget(self.label, 3, 0, 1, 3)
@@ -328,6 +325,8 @@ class Ui_Form(object):
         self.tabla_principal.setRowCount(10)
         self.tabla_principal.setObjectName("tabla_principal")
         self.tabla_principal.setColumnCount(10)
+        self.tabla_principal.setAlternatingRowColors(True)
+        self.tabla_principal.setStyleSheet("alternate-background-color: rgb(100, 200, 200);background-color: rgb(200, 200, 200);");
         item = QtWidgets.QTableWidgetItem()
         self.tabla_principal.setHorizontalHeaderItem(0, item)
         item = QtWidgets.QTableWidgetItem()
@@ -667,6 +666,8 @@ class Ui_Form(object):
         self.verticalLayout_5.setObjectName("verticalLayout_5")
         self.tabla_listar_interpretes = QtWidgets.QTableWidget(self.page_listar_interpretes)
         self.tabla_listar_interpretes.setObjectName("tabla_listar_interpretes")
+        self.tabla_listar_interpretes.setAlternatingRowColors(True)
+        self.tabla_listar_interpretes.setStyleSheet("alternate-background-color: rgb(100, 200, 200);background-color: rgb(200, 200, 200);");
         self.tabla_listar_interpretes.setColumnCount(4)
         self.tabla_listar_interpretes.setRowCount(0)
         item = QtWidgets.QTableWidgetItem()
@@ -700,7 +701,9 @@ class Ui_Form(object):
         self.verticalLayout_6.setObjectName("verticalLayout_6")
         self.tabla_listar_temas = QtWidgets.QTableWidget(self.page_listar_temas)
         self.tabla_listar_temas.setObjectName("tabla_listar_temas")
-        self.tabla_listar_temas.setColumnCount(6)
+        self.tabla_listar_temas.setAlternatingRowColors(True)
+        self.tabla_listar_temas.setStyleSheet("alternate-background-color: rgb(100, 200, 200);background-color: rgb(200, 200, 200);");
+        self.tabla_listar_temas.setColumnCount(7)
         self.tabla_listar_temas.setRowCount(0)
         item = QtWidgets.QTableWidgetItem()
         self.tabla_listar_temas.setHorizontalHeaderItem(0, item)
@@ -714,6 +717,8 @@ class Ui_Form(object):
         self.tabla_listar_temas.setHorizontalHeaderItem(4, item)
         item = QtWidgets.QTableWidgetItem()
         self.tabla_listar_temas.setHorizontalHeaderItem(5, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tabla_listar_temas.setHorizontalHeaderItem(6, item)
         self.verticalLayout_6.addWidget(self.tabla_listar_temas)
         self.boton_actualizar_temas = QtWidgets.QPushButton(self.page_listar_temas)
         font = QtGui.QFont()
@@ -772,6 +777,8 @@ class Ui_Form(object):
         self.gridLayout_14.setObjectName("gridLayout_14")
         self.tabla_buscar_tema = QtWidgets.QTableWidget(self.frame_7)
         self.tabla_buscar_tema.setObjectName("tabla_buscar_tema")
+        self.tabla_buscar_tema.setAlternatingRowColors(True)
+        self.tabla_buscar_tema.setStyleSheet("alternate-background-color: rgb(100, 200, 200);background-color: rgb(200, 200, 200);");
         self.tabla_buscar_tema.setColumnCount(7)
         self.tabla_buscar_tema.setRowCount(0)
         item = QtWidgets.QTableWidgetItem()
@@ -979,39 +986,39 @@ class Ui_Form(object):
         self.verticalLayout_2.setStretch(1, 6)
         self.gridLayout_3.addWidget(self.frame, 0, 0, 1, 1)
 
+
         self.retranslateUi(Form)
-        self.stackedWidget.setCurrentIndex(7)
+        self.stackedWidget.setCurrentIndex(6)
         QtCore.QMetaObject.connectSlotsByName(Form)
 
 
 
         #--------------------Eventos principal--------------------------------------
-        self.l = self.btn_listar.clicked.connect(lambda:self.stackedWidget.setCurrentWidget(self.page_principal))   #ok
-        self.c = self.btn_crear_album.clicked.connect(lambda:self.stackedWidget.setCurrentWidget(self.page_crear_album))
-        self.cq = self.btn_crear_album.clicked.connect(lambda:self.principal_controller.comboBox_crear_album())
+        self.la = self.btn_listar.clicked.connect(lambda:self.stackedWidget.setCurrentWidget(self.page_principal))
+        self.la1 = self.principal_controller.listar_album()
+        self.ca = self.btn_crear_album.clicked.connect(lambda:self.stackedWidget.setCurrentWidget(self.page_crear_album))
+        self.ccb = self.btn_crear_album.clicked.connect(lambda:self.principal_controller.comboBox_crear_album())
         self.d = self.btn_listar_temas.clicked.connect(lambda:self.stackedWidget.setCurrentWidget(self.page_listar_temas))
+        self.d1 = self.principal_controller.listar_temas()
         self.t = self.btn_crear_tema.clicked.connect(lambda:self.stackedWidget.setCurrentWidget(self.page_crear_tema))
         self.t1 = self.btn_crear_tema.clicked.connect(lambda:self.principal_controller.comboBox_crear_tema())
         self.i = self.btn_crear_inter.clicked.connect(lambda:self.stackedWidget.setCurrentWidget(self.page_crear_inter))
-        self.f = self.btn_listar_interpretes.clicked.connect(lambda:self.stackedWidget.setCurrentWidget(self.page_listar_interpretes))
+        self.i2 = self.btn_listar_interpretes.clicked.connect(lambda:self.stackedWidget.setCurrentWidget(self.page_listar_interpretes))
+        self.i3 = self.principal_controller.listar_inter()
         self.g = self.btn_buscar.clicked.connect(lambda:self.stackedWidget.setCurrentWidget(self.page_buscar))
         self.m = self.btn_modificar.clicked.connect(lambda:self.stackedWidget.setCurrentWidget(self.page_modificar))
         self.m1 = self.btn_modificar.clicked.connect(lambda:self.principal_controller.comboBox_modificar())
-        self.d = self.btn_eliminar.clicked.connect(lambda:self.principal_controller.deleteProduct())  #ok
+        self.d = self.btn_eliminar.clicked.connect(lambda:self.principal_controller.abrir_eliminar(Ui_Eliminar)) 
+        
 
         #--------------------Eventos Crear album--------------------------------------
-
-        # self.comboBox_interprete_2.addItems(self.principal_controller.interpretes())
-        # self.comboBox_genero_2.addItems(self.principal_controller.generos())
-        # self.comboBox_discografica_2.addItems(self.principal_controller.discograficas())
-        # self.comboBox_formato_2.addItems(self.principal_controller.formatos())
 
 
         self.crear_album = self.boton_crear_2.clicked.connect(lambda:self.principal_controller.crear_nuevo_album(self.input_codigo_2.text(),self.input_nombre_2.text(),self.comboBox_interprete_2.currentText() ,self.comboBox_genero_2.currentText(), self.input_cantidaddetemas_2.text(), self.comboBox_discografica_2.currentText(), self.comboBox_formato_2.currentText(), self.input_fechadelanzamiento_2.text(), self.input_precio_2.text(), self.input_stock_2.text(), self.input_caratula_2.text()))
 
         #--------------------Eventos listar--------------------------------------
 
-        self.actualizar = self.btn_actualizar.clicked.connect(lambda:self.principal_controller.listProducts())
+        self.actualizar = self.btn_actualizar.clicked.connect(lambda:self.principal_controller.listar_album())
 
  
         #--------------------Eventos Crear Interprete--------------------------------------
@@ -1020,9 +1027,6 @@ class Ui_Form(object):
 
 
         #--------------------Eventos Crear Tema--------------------------------------
-
-        # self.cB_id_interprete.addItems(self.principal_controller.interpretes())
-        # self.cB_id_album.addItems(self.principal_controller.albumes())
 
 
         self.tema = self.boton_crear_tema.clicked.connect(lambda:self.principal_controller.cargar_tema(self.input_nombre_tema.text(), self.input_duracion.text(), self.input_autor.text(), self.input_compositor.text(), self.cB_id_album.currentText(), self.cB_id_interprete.currentText()))
@@ -1071,34 +1075,34 @@ class Ui_Form(object):
         self.input_cantidaddetemas_4.setPlaceholderText(_translate("Form", "Cantidad de temas"))
         self.input_caratula_4.setPlaceholderText(_translate("Form", "Carátula"))
         self.label_51.setText(_translate("Form", "Carátula:"))
-        self.label_41.setText(_translate("Form", "Modificar"))
+        self.label_41.setText(_translate("Form", "Modificar Album"))
         self.label_43.setText(_translate("Form", "Nombre"))
         self.input_stock_4.setPlaceholderText(_translate("Form", "Stock"))
         self.input_fechadelanzamiento_4.setPlaceholderText(_translate("Form", "Fecha de lanzamiento"))
         self.label_48.setText(_translate("Form", "Formato"))
         self.label_40.setText(_translate("Form", "Cantidad de temas:"))
-        self.label.setText(_translate("Form", "Seleccione el Codigo del Album a modificar y luego modifique los campos que desee actualizar"))
+        self.label.setText(_translate("Form", "Seleccione el Nombre del Album a modificar y luego modifique los campos que desee actualizar"))
         self.boton_modif_act.setText(_translate("Form", "Actualizar"))
         self.label_49.setText(_translate("Form", "Precio:"))
         self.input_precio_4.setPlaceholderText(_translate("Form", "Precio"))
         self.label_45.setText(_translate("Form", "ID intérprete:"))
         self.label_44.setText(_translate("Form", "Nombre del Album:"))
         item = self.tabla_principal.horizontalHeaderItem(0)
-        item.setText(_translate("Form", "id_album"))
+        item.setText(_translate("Form", "ID"))
         item = self.tabla_principal.horizontalHeaderItem(1)
-        item.setText(_translate("Form", "cod_album"))
+        item.setText(_translate("Form", "Codigo"))
         item = self.tabla_principal.horizontalHeaderItem(2)
         item.setText(_translate("Form", "Nombre"))
         item = self.tabla_principal.horizontalHeaderItem(3)
-        item.setText(_translate("Form", "id_interprete"))
+        item.setText(_translate("Form", "Interprete"))
         item = self.tabla_principal.horizontalHeaderItem(4)
-        item.setText(_translate("Form", "id_genero"))
+        item.setText(_translate("Form", "Genero"))
         item = self.tabla_principal.horizontalHeaderItem(5)
-        item.setText(_translate("Form", "cant_temas"))
+        item.setText(_translate("Form", "Temas"))
         item = self.tabla_principal.horizontalHeaderItem(6)
-        item.setText(_translate("Form", "id_discografia"))
+        item.setText(_translate("Form", "Discografica"))
         item = self.tabla_principal.horizontalHeaderItem(7)
-        item.setText(_translate("Form", "id_formato"))
+        item.setText(_translate("Form", "Formato"))
         item = self.tabla_principal.horizontalHeaderItem(8)
         item.setText(_translate("Form", "Fecha lanzamiento"))
         item = self.tabla_principal.horizontalHeaderItem(9)
@@ -1131,32 +1135,31 @@ class Ui_Form(object):
         self.label_nombre.setText(_translate("Form", "Nombre:"))
         self.label_25.setText(_translate("Form", "Cargar Interprete"))
         self.input_apellido_inter.setPlaceholderText(_translate("Form", "Apellido"))
-        self.input_apellido_inter.setPlaceholderText(_translate("Form", "Cantidad de temas"))
         self.input_foto_inter.setPlaceholderText(_translate("Form", "Foto"))
-        self.input_foto_inter.setPlaceholderText(_translate("Form", "Carátula"))
         self.input_nacionalidad_inter.setPlaceholderText(_translate("Form", "Nacionalidad"))
-        self.input_nacionalidad_inter.setPlaceholderText(_translate("Form", "Fecha de lanzamiento"))
         self.boton_cargar_interprete.setText(_translate("Form", "Cargar"))
         item = self.tabla_listar_interpretes.horizontalHeaderItem(0)
-        item.setText(_translate("Form", "id_interprete"))
+        item.setText(_translate("Form", "ID"))
         item = self.tabla_listar_interpretes.horizontalHeaderItem(1)
-        item.setText(_translate("Form", "Nueva columna"))
-        item = self.tabla_listar_interpretes.horizontalHeaderItem(2)
         item.setText(_translate("Form", "Nombre"))
+        item = self.tabla_listar_interpretes.horizontalHeaderItem(2)
+        item.setText(_translate("Form", "Apellido"))
         item = self.tabla_listar_interpretes.horizontalHeaderItem(3)
         item.setText(_translate("Form", "Nacionalidad"))
         self.boton_actualizar_inter.setText(_translate("Form", "Actualizar"))
         item = self.tabla_listar_temas.horizontalHeaderItem(0)
-        item.setText(_translate("Form", "id_tema"))
+        item.setText(_translate("Form", "ID"))
         item = self.tabla_listar_temas.horizontalHeaderItem(1)
         item.setText(_translate("Form", "Titulo"))
         item = self.tabla_listar_temas.horizontalHeaderItem(2)
-        item.setText(_translate("Form", "Nueva columna"))
+        item.setText(_translate("Form", "Duracion"))
         item = self.tabla_listar_temas.horizontalHeaderItem(3)
-        item.setText(_translate("Form", "duracion"))
+        item.setText(_translate("Form", "Autor"))
         item = self.tabla_listar_temas.horizontalHeaderItem(4)
         item.setText(_translate("Form", "Compositor"))
         item = self.tabla_listar_temas.horizontalHeaderItem(5)
+        item.setText(_translate("Form", "id_album"))
+        item = self.tabla_listar_temas.horizontalHeaderItem(6)
         item.setText(_translate("Form", "id_interprete"))
         self.boton_actualizar_temas.setText(_translate("Form", "Actualizar"))
         self.label_27.setText(_translate("Form", "Buscar Tema por Titulo"))
@@ -1178,14 +1181,11 @@ class Ui_Form(object):
         self.label_id_interprete.setText(_translate("Form", "ID intérprete:"))
         self.input_nombre_tema.setPlaceholderText(_translate("Form", "Nombre"))
         self.input_duracion.setPlaceholderText(_translate("Form", "Duracion"))
-        self.input_duracion.setPlaceholderText(_translate("Form", "Precio"))
         self.label_compositor.setText(_translate("Form", "Compositor:"))
         self.label_29.setText(_translate("Form", "Crear Tema"))
         self.label_duracion.setText(_translate("Form", "Duracion:"))
         self.input_compositor.setPlaceholderText(_translate("Form", "Compositor"))
-        self.input_compositor.setPlaceholderText(_translate("Form", "Cantidad de temas"))
         self.input_autor.setPlaceholderText(_translate("Form", "Autor"))
-        self.input_autor.setPlaceholderText(_translate("Form", "Stock"))
         self.label_nombre_2.setText(_translate("Form", "Nombre:"))
         self.label_autor.setText(_translate("Form", "Autor:"))
         self.label_id_album.setText(_translate("Form", "ID album:"))
